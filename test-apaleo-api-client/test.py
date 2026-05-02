@@ -1,11 +1,14 @@
 import asyncio
 import os
 
-from apaleoapi import ApaleoAPIClient, OAuth2ClientCredentialsProvider
-from apaleoapi.apaleo.identity.v1.identity import InvitationListParams
 from dotenv import load_dotenv
 
-load_dotenv(".env.client_credentials")  # Load from specific .env file for this test
+from apaleoapi import ApaleoAPIClient, OAuth2ClientCredentialsProvider
+from apaleoapi.apaleo.identity.v1.identity import InvitationListParams
+
+load_dotenv(
+    ".env.client_credentials"
+)  # Load from specific .env file for this test
 
 
 async def main() -> None:
@@ -26,6 +29,10 @@ async def main() -> None:
         roles = await client.identity.v1.identity.list_roles()
         print(f"Found {len(roles.items)} role(s)")
         print(f"Found {roles.count} role(s)")
+
+        countries = await client.core.v1.inventory.list_countries()
+        print(f"Found {len(countries.items)} country(s)")
+        print(f"Found {countries.count} country(s)")
     finally:
         await client.aclose()
 

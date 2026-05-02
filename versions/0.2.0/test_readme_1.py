@@ -14,7 +14,7 @@ async def main() -> None:
     token_provider = OAuth2ClientCredentialsProvider(
         client_id=os.getenv("APALEO_API_CLIENT_ID"),
         client_secret=os.getenv("APALEO_API_CLIENT_SECRET"),
-        service="Apaleo API Client - Client Credentials Flow",
+        service="Basic Example Client Credentials - README.md",
     )
 
     # Create an instance of the client

@@ -19,5 +19,61 @@ uvicorn = {extras = ["standard"], version = "^0.34.0"}
 python-dotenv = "^1.2.2"
 apaleo-api-client = {path = "../../apaleo-api-client", develop = true}
 freezegun = ">=1.5.5,<2.0.0"
-black = ">=26.3.1,<27.0.0"
 isort = ">=8.0.1,<9.0.0"
+ruff = "^0.15.12"
+flake8-pyproject = "^1.2.4"
+mypy = "^1.20.2"
+
+
+[tool.isort]
+# Black compatibility
+profile = "black"
+
+# Match line length with ruff
+line_length = 80
+
+# Skip files listed in .gitignore
+skip_gitignore = true
+
+# Skip migrations files
+skip = ["migrations", "versions", ".venv"]
+
+# Treat 'apaleoapi' as a first-party module
+known_firstparty = "apaleoapi"
+sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
+
+
+[tool.ruff]
+line-length = 80
+fix = true
+exclude = [
+    "*/.venv/*",
+    "*sqlite3*"
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "C90", "N"]
+ignore = ["B008"]
+
+
+[tool.flake8]
+exclude = [
+    ".git",
+    ".tox",
+    ".nox",
+    "__pycache__",
+    "build",
+    "dist",
+    "venv",
+    ".venv"
+]
+
+max-line-length = 80
+
+ignore = [
+    "E203",  # whitespace before ':'
+    "E262",  # inline comment should start with '# '
+    "E265",  # block comment should start with '# '
+    "W503",  # line break before binary operator
+    "E731"   # do not assign a lambda expression, use a def
+]

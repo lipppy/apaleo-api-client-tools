@@ -2,7 +2,9 @@
 PWD := $(shell pwd)
 
 format:
-	@echo "Formatting code with isort and black..."
+	@echo "Formatting code with isort and ruff..."
 	poetry run isort .
-	poetry run black .
+	poetry run ruff format .
+	poetry run flake8 .
+	poetry run mypy --strict .
 	@echo "Code formatting completed."

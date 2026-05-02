@@ -1,8 +1,8 @@
 """
 FastAPI app for testing Apaleo API OAuth2 Authorization Code flow.
 
-This lightweight web application demonstrates how to implement the OAuth2 authorization
-code flow for the Apaleo API using the apaleo-api-client library.
+This lightweight web application demonstrates how to implement the OAuth2
+authorization code flow for the Apaleo API using the apaleo-api-client library.
 """
 
 import logging
@@ -12,12 +12,13 @@ from dataclasses import asdict
 from datetime import datetime, timedelta
 from typing import Any, Optional
 
-from apaleoapi.client import ApaleoAPIClient
-from apaleoapi.constants import APALEO_API_AUTHORIZE_URL
-from apaleoapi.http.auth import OAuth2AuthorizationCodeProvider
 from dotenv import dotenv_values
 from fastapi import FastAPI, Query, Request
 from fastapi.responses import HTMLResponse
+
+from apaleoapi.client import ApaleoAPIClient
+from apaleoapi.constants import APALEO_API_AUTHORIZE_URL
+from apaleoapi.http.auth import OAuth2AuthorizationCodeProvider
 
 # Load environment variables from .env file
 config = dotenv_values(
@@ -300,7 +301,9 @@ async def index(request: Request) -> HTMLResponse:
         "state": state,
     }
 
-    auth_url = f"{APALEO_API_AUTHORIZE_URL}?{urllib.parse.urlencode(auth_params)}"
+    auth_url = (
+        f"{APALEO_API_AUTHORIZE_URL}?{urllib.parse.urlencode(auth_params)}"
+    )
 
     return HTMLResponse(
         INDEX_TEMPLATE.format(
@@ -448,7 +451,9 @@ async def test_identity() -> dict[str, Any]:
         }
 
     try:
-        invitations = await authenticated_client.identity.v1.identity.list_invitations()
+        invitations = (
+            await authenticated_client.identity.v1.identity.list_invitations()
+        )
     except Exception as e:
         return {
             "success": False,
@@ -495,7 +500,10 @@ async def debug_token() -> dict[str, Any]:
     global authenticated_client
 
     if not authenticated_client:
-        return {"authenticated": False, "message": "No authenticated client available"}
+        return {
+            "authenticated": False,
+            "message": "No authenticated client available",
+        }
 
     try:
         # Try to get the token to check if it's valid and can be refreshed if needed
@@ -508,7 +516,11 @@ async def debug_token() -> dict[str, Any]:
             "provider_type": type(authenticated_client.token_provider).__name__,
         }
     except Exception as e:
-        return {"authenticated": True, "error": str(e), "error_type": type(e).__name__}
+        return {
+            "authenticated": True,
+            "error": str(e),
+            "error_type": type(e).__name__,
+        }
 
 
 if __name__ == "__main__":
@@ -523,7 +535,9 @@ if __name__ == "__main__":
     print("    APALEO_CLIENT_SECRET=your-actual-client-secret")
     print("    REDIRECT_URI=http://localhost:8000/callback")
     print()
-    print("📖 Navigate to http://localhost:8000 to start the authorization flow.")
+    print(
+        "📖 Navigate to http://localhost:8000 to start the authorization flow."
+    )
     print("🔄 For auto-reload during development, use:")
     print(
         "    poetry run python -m uvicorn test_authorization_code:app --host 0.0.0.0 --port 8000 --reload"
