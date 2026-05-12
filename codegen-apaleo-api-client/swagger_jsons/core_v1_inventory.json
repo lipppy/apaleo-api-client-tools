@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "apaleo Inventory API",
-    "description": "Setup and manage <b>properties</b> (hotels, etc.) and all the entites in them to rent out:\n<b>Units</b> such as rooms, parking lots, beds, meeting rooms, etc. Units can be combined into <b>groups</b> (single rooms, double rooms).",
+    "description": "Setup and manage \u003Cb\u003Eproperties\u003C/b\u003E (hotels, etc.) and all the entites in them to rent out:\n\u003Cb\u003EUnits\u003C/b\u003E such as rooms, parking lots, beds, meeting rooms, etc. Units can be combined into \u003Cb\u003Egroups\u003C/b\u003E (single rooms, double rooms).",
     "version": "v1"
   },
   "paths": {
@@ -12,7 +12,7 @@
           "Property"
         ],
         "summary": "Get a properties list",
-        "description": "Get the list of properties.<br>You need to be authorized (no particular scope required)",
+        "description": "Get the list of properties.\u003Cbr\u003EYou need to be authorized (no particular scope required)",
         "operationId": "InventoryPropertiesGet",
         "produces": [
           "application/json"
@@ -24,11 +24,11 @@
             "description": "Filter result by property status",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "Test",
                 "Live"
-              ],
-              "type": "string"
+              ]
             }
           },
           {
@@ -66,10 +66,10 @@
             "description": "List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "actions"
-              ],
-              "type": "string"
+              ]
             }
           }
         ],
@@ -113,7 +113,7 @@
         },
         "security": [
           {
-            "oauth2": [ ]
+            "oauth2": []
           }
         ]
       },
@@ -122,7 +122,7 @@
           "Property"
         ],
         "summary": "Creates a property",
-        "description": "Use this call to create a new property.<br>You must have at least one of these scopes: 'properties.create, setup.manage'.",
+        "description": "Use this call to create a new property.\u003Cbr\u003EYou must have at least one of these scopes: \u0027properties.create, setup.manage\u0027.",
         "operationId": "InventoryPropertiesPost",
         "consumes": [
           "application/json"
@@ -134,7 +134,7 @@
           {
             "in": "header",
             "name": "Idempotency-Key",
-            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours.",
+            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe\u0027ll always send back the same response for requests made with the same key, \nand keys can\u0027t be reused with different request parameters. Keys expire after 24 hours.",
             "type": "string"
           },
           {
@@ -208,7 +208,7 @@
           "Property"
         ],
         "summary": "Return total count of properties",
-        "description": "Return total count of properties<br>You need to be authorized (no particular scope required)",
+        "description": "Return total count of properties\u003Cbr\u003EYou need to be authorized (no particular scope required)",
         "operationId": "InventoryProperties$countGet",
         "produces": [
           "application/json"
@@ -250,7 +250,7 @@
         },
         "security": [
           {
-            "oauth2": [ ]
+            "oauth2": []
           }
         ]
       }
@@ -261,7 +261,7 @@
           "Property"
         ],
         "summary": "Check if a property exists",
-        "description": "Check if a property exists by id.<br>You need to be authorized (no particular scope required)",
+        "description": "Check if a property exists by id.\u003Cbr\u003EYou need to be authorized (no particular scope required)",
         "operationId": "InventoryPropertiesByIdHead",
         "parameters": [
           {
@@ -300,7 +300,7 @@
         },
         "security": [
           {
-            "oauth2": [ ]
+            "oauth2": []
           }
         ]
       },
@@ -309,7 +309,7 @@
           "Property"
         ],
         "summary": "Get a property",
-        "description": "Get a property by id.<br>You need to be authorized (no particular scope required)",
+        "description": "Get a property by id.\u003Cbr\u003EYou need to be authorized (no particular scope required)",
         "operationId": "InventoryPropertiesByIdGet",
         "produces": [
           "application/json"
@@ -325,7 +325,7 @@
           {
             "in": "query",
             "name": "languages",
-            "description": "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+            "description": "\u0027all\u0027 or comma separated list of two-letter language codes (ISO Alpha-2)",
             "type": "array",
             "items": {
               "type": "string"
@@ -337,10 +337,10 @@
             "description": "List of all embedded resources that should be expanded in the response. Possible values are: actions. All other values will be silently ignored.",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "actions"
-              ],
-              "type": "string"
+              ]
             }
           }
         ],
@@ -381,7 +381,7 @@
         },
         "security": [
           {
-            "oauth2": [ ]
+            "oauth2": []
           }
         ]
       },
@@ -390,7 +390,7 @@
           "Property"
         ],
         "summary": "Allows to modify property",
-        "description": "Here's a list of allowed operations:\r\n- Replace Name\r\n- Add, replace and remove Description\r\n- Replace CompanyName\r\n- Add, replace and remove ManagingDirectors\r\n- Replace CommercialRegisterEntry\r\n- Replace TaxId\r\n- Replace Location\r\n- Add, replace and remove BankAccount\r\n- Replace PaymentTerms\r\n- Set IsTemplate<br>You must have at least one of these scopes: 'properties.manage, setup.manage'.",
+        "description": "Here\u0027s a list of allowed operations:\n- Replace Name\n- Add, replace and remove Description\n- Replace CompanyName\n- Add, replace and remove ManagingDirectors\n- Replace CommercialRegisterEntry\n- Replace TaxId\n- Replace Location\n- Add, replace and remove BankAccount\n- Replace PaymentTerms\n- Set IsTemplate\u003Cbr\u003EYou must have at least one of these scopes: \u0027properties.manage, setup.manage\u0027.",
         "operationId": "InventoryPropertiesByIdPatch",
         "consumes": [
           "application/json"
@@ -469,7 +469,7 @@
           "Property"
         ],
         "summary": "Deletes a property",
-        "description": "Use this endpoint to delete a property and all related data: transactional, setup.\r\nThe property must be in 'Test' status.<br>You must have at least one of these scopes: 'properties.manage, setup.manage'.",
+        "description": "Use this endpoint to delete a property and all related data: transactional, setup.\nThe property must be in \u0027Test\u0027 status.\u003Cbr\u003EYou must have at least one of these scopes: \u0027properties.manage, setup.manage\u0027.",
         "operationId": "InventoryPropertiesByIdDelete",
         "produces": [
           "application/json"
@@ -532,7 +532,7 @@
           "PropertyActions"
         ],
         "summary": "Clones a property",
-        "description": "Use this call to clone a specific property.\r\nThis operation creates a new property with inventory and rate plans from the specified property.<br>You must have at least one of these scopes: 'properties.create, setup.manage'.",
+        "description": "Use this call to clone a specific property.\nThis operation creates a new property with inventory and rate plans from the specified property.\u003Cbr\u003EYou must have at least one of these scopes: \u0027properties.create, setup.manage\u0027.",
         "operationId": "InventoryProperty-actionsByIdClonePost",
         "consumes": [
           "application/json"
@@ -551,7 +551,7 @@
           {
             "in": "header",
             "name": "Idempotency-Key",
-            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours.",
+            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe\u0027ll always send back the same response for requests made with the same key, \nand keys can\u0027t be reused with different request parameters. Keys expire after 24 hours.",
             "type": "string"
           },
           {
@@ -625,7 +625,7 @@
           "PropertyActions"
         ],
         "summary": "Archive a property",
-        "description": "Use this endpoint to archive an existing live property\r\nThis operation set the IsArchived flag to true<br>You must have at least one of these scopes: 'properties.manage, setup.manage'.",
+        "description": "Use this endpoint to archive an existing live property\nThis operation set the IsArchived flag to true\u003Cbr\u003EYou must have at least one of these scopes: \u0027properties.manage, setup.manage\u0027.",
         "operationId": "InventoryProperty-actionsByIdArchivePut",
         "produces": [
           "application/json"
@@ -688,7 +688,7 @@
           "PropertyActions"
         ],
         "summary": "Move property to live",
-        "description": "Use this endpoint to move an existing test property to live\r\nThis operation changes the property status to 'Live'<br>You must have at least one of these scopes: 'properties.manage, setup.manage'.",
+        "description": "Use this endpoint to move an existing test property to live\nThis operation changes the property status to \u0027Live\u0027\u003Cbr\u003EYou must have at least one of these scopes: \u0027properties.manage, setup.manage\u0027.",
         "operationId": "InventoryProperty-actionsByIdSet-livePut",
         "produces": [
           "application/json"
@@ -751,7 +751,7 @@
           "PropertyActions"
         ],
         "summary": "Reset a test property and delete all transactional data",
-        "description": "Use this endpoint to delete all transactional data related to some test property\r\nThis operation deletes all transactional data related to the specified property. The property must be in 'Test' status.<br>You must have at least one of these scopes: 'properties.manage, setup.manage'.",
+        "description": "Use this endpoint to delete all transactional data related to some test property\nThis operation deletes all transactional data related to the specified property. The property must be in \u0027Test\u0027 status.\u003Cbr\u003EYou must have at least one of these scopes: \u0027properties.manage, setup.manage\u0027.",
         "operationId": "InventoryProperty-actionsByIdResetPut",
         "produces": [
           "application/json"
@@ -814,7 +814,7 @@
           "Types"
         ],
         "summary": "Returns a list of supported countries.",
-        "description": "Returns a list of ISO country codes that could be used to create properties.<br>You need to be authorized (no particular scope required)",
+        "description": "Returns a list of ISO country codes that could be used to create properties.\u003Cbr\u003EYou need to be authorized (no particular scope required)",
         "operationId": "InventoryTypesCountriesGet",
         "produces": [
           "application/json"
@@ -856,7 +856,7 @@
         },
         "security": [
           {
-            "oauth2": [ ]
+            "oauth2": []
           }
         ]
       }
@@ -867,7 +867,7 @@
           "Unit"
         ],
         "summary": "Allows to patch unit",
-        "description": "Here's a list of allowed operations:\r\n- Set unit condition\r\n- Set unit description\r\n- Set unit name\r\n- Set unit unitGroupId\r\n- Set unit maxPersons\r\n- Add unit attribute\r\n- Remove unit attribute<br>You must have at least one of these scopes: 'units.manage, setup.manage'.",
+        "description": "Here\u0027s a list of allowed operations:\n- Set unit condition\n- Set unit description\n- Set unit name\n- Set unit unitGroupId\n- Set unit maxPersons\n- Add unit attribute\n- Remove unit attribute\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.manage, setup.manage\u0027.",
         "operationId": "InventoryUnitsByIdPatch",
         "consumes": [
           "application/json"
@@ -946,7 +946,7 @@
           "Unit"
         ],
         "summary": "Get a unit",
-        "description": "Get a unit by id.<br>You must have at least one of these scopes: 'units.read, setup.read, setup.manage'.",
+        "description": "Get a unit by id.\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnitsByIdGet",
         "produces": [
           "application/json"
@@ -962,7 +962,7 @@
           {
             "in": "query",
             "name": "languages",
-            "description": "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+            "description": "\u0027all\u0027 or comma separated list of two-letter language codes (ISO Alpha-2)",
             "type": "array",
             "items": {
               "type": "string"
@@ -971,15 +971,16 @@
           {
             "in": "query",
             "name": "expand",
-            "description": "List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.",
+            "description": "List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits, actions. All other values will be silently ignored.",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "property",
                 "unitGroup",
-                "connectedUnits"
-              ],
-              "type": "string"
+                "connectedUnits",
+                "actions"
+              ]
             }
           }
         ],
@@ -1034,7 +1035,7 @@
           "Unit"
         ],
         "summary": "Check if a unit exists",
-        "description": "Check if a unit exists by id.<br>You must have at least one of these scopes: 'units.read, setup.read, setup.manage'.",
+        "description": "Check if a unit exists by id.\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnitsByIdHead",
         "parameters": [
           {
@@ -1087,7 +1088,7 @@
           "Unit"
         ],
         "summary": "Delete a unit",
-        "description": "Use this call to delete a unit.<br>You must have at least one of these scopes: 'units.delete, setup.manage'.",
+        "description": "Use this call to delete a unit.\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.delete, setup.manage\u0027.",
         "operationId": "InventoryUnitsByIdDelete",
         "produces": [
           "application/json"
@@ -1150,7 +1151,7 @@
           "Unit"
         ],
         "summary": "Allows to patch one or more units",
-        "description": "Here's a list of allowed operations:\r\n- Set unit condition\r\n- Set unit description\r\n- Set unit name\r\n- Set unit unitGroupId\r\n- Set unit maxPersons\r\n- Add unit attribute\r\n- Remove unit attribute<br>You must have at least one of these scopes: 'units.manage, setup.manage'.",
+        "description": "Here\u0027s a list of allowed operations:\n- Set unit condition\n- Set unit description\n- Set unit name\n- Set unit unitGroupId\n- Set unit maxPersons\n- Add unit attribute\n- Remove unit attribute\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.manage, setup.manage\u0027.",
         "operationId": "InventoryUnitsPatch",
         "consumes": [
           "application/json"
@@ -1231,7 +1232,7 @@
           "Unit"
         ],
         "summary": "Get a units list",
-        "description": "Get the list of units.<br>You must have at least one of these scopes: 'units.read, setup.read, setup.manage'.",
+        "description": "Get the list of units.\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnitsGet",
         "produces": [
           "application/json"
@@ -1246,7 +1247,7 @@
           {
             "in": "query",
             "name": "unitGroupId",
-            "description": "Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>",
+            "description": "Return units for the specific unit group - \u003Cb\u003EDEPRECATED: This property will be removed 20.04.2022. Use \u0060UnitGroupIds\u0060 instead\u003C/b\u003E",
             "type": "string"
           },
           {
@@ -1303,6 +1304,17 @@
           },
           {
             "in": "query",
+            "name": "status",
+            "description": "Return active units, archived units, or all units.\nDefaults to active.",
+            "type": "string",
+            "enum": [
+              "Active",
+              "Archived",
+              "All"
+            ]
+          },
+          {
+            "in": "query",
             "name": "pageNumber",
             "description": "Page number to retrieve. Default: 1. If the page has no items, the API returns 204 No Content.",
             "type": "integer",
@@ -1318,15 +1330,16 @@
           {
             "in": "query",
             "name": "expand",
-            "description": "List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits. All other values will be silently ignored.",
+            "description": "List of all embedded resources that should be expanded in the response. Possible values are: property, unitGroup, connectedUnits, actions. All other values will be silently ignored.",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "property",
                 "unitGroup",
-                "connectedUnits"
-              ],
-              "type": "string"
+                "connectedUnits",
+                "actions"
+              ]
             }
           }
         ],
@@ -1384,7 +1397,7 @@
           "Unit"
         ],
         "summary": "Create a unit",
-        "description": "Use this call to create a new unit.<br>You must have at least one of these scopes: 'units.create, setup.manage'.",
+        "description": "Use this call to create a new unit.\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.create, setup.manage\u0027.",
         "operationId": "InventoryUnitsPost",
         "consumes": [
           "application/json"
@@ -1396,7 +1409,7 @@
           {
             "in": "header",
             "name": "Idempotency-Key",
-            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours.",
+            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe\u0027ll always send back the same response for requests made with the same key, \nand keys can\u0027t be reused with different request parameters. Keys expire after 24 hours.",
             "type": "string"
           },
           {
@@ -1470,7 +1483,7 @@
           "Unit"
         ],
         "summary": "Returns number of units",
-        "description": "Returns number of units matching the filter criteria<br>You must have at least one of these scopes: 'units.read, setup.read, setup.manage'.",
+        "description": "Returns number of units matching the filter criteria\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnits$countGet",
         "produces": [
           "application/json"
@@ -1485,7 +1498,7 @@
           {
             "in": "query",
             "name": "unitGroupId",
-            "description": "Return units for the specific unit group - <b>DEPRECATED: This property will be removed 20.04.2022. Use `UnitGroupIds` instead</b>",
+            "description": "Return units for the specific unit group - \u003Cb\u003EDEPRECATED: This property will be removed 20.04.2022. Use \u0060UnitGroupIds\u0060 instead\u003C/b\u003E",
             "type": "string"
           },
           {
@@ -1539,6 +1552,17 @@
             "name": "textSearch",
             "description": "This will filter all units where the provided text is contained in the unit name. The search is case insensitive.",
             "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "description": "Return active units, archived units, or all units.\nDefaults to active.",
+            "type": "string",
+            "enum": [
+              "Active",
+              "Archived",
+              "All"
+            ]
           }
         ],
         "responses": {
@@ -1594,7 +1618,7 @@
           "Unit"
         ],
         "summary": "Create multiple units",
-        "description": "Use this call to create multiple units, following a naming rule.<br>You must have at least one of these scopes: 'units.create, setup.manage'.",
+        "description": "Use this call to create multiple units, following a naming rule.\u003Cbr\u003EYou must have at least one of these scopes: \u0027units.create, setup.manage\u0027.",
         "operationId": "InventoryUnitsBulkPost",
         "consumes": [
           "application/json"
@@ -1606,7 +1630,7 @@
           {
             "in": "header",
             "name": "Idempotency-Key",
-            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours.",
+            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe\u0027ll always send back the same response for requests made with the same key, \nand keys can\u0027t be reused with different request parameters. Keys expire after 24 hours.",
             "type": "string"
           },
           {
@@ -1668,13 +1692,75 @@
         ]
       }
     },
+    "/inventory/v1/unit-actions/{id}/archive": {
+      "put": {
+        "tags": [
+          "UnitActions"
+        ],
+        "summary": "Archive a unit",
+        "description": "Archive the specific unit.\nThis action makes unit unavailable for all operations and cannot be undone.\u003Cbr\u003EYou must have this scope: \u0027setup.manage\u0027.",
+        "operationId": "InventoryUnit-actionsByIdArchivePut",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the unit that should be archived.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Confirmation of the operation was successful."
+          },
+          "404": {
+            "description": "The Request-URI could not be found."
+          },
+          "400": {
+            "description": "Bad request."
+          },
+          "401": {
+            "description": "You are unauthorized."
+          },
+          "403": {
+            "description": "Forbidden."
+          },
+          "499": {
+            "description": "Client closed request."
+          },
+          "500": {
+            "description": "An unexpected error occurred."
+          },
+          "503": {
+            "description": "The server is currently unavailable. Please try later."
+          },
+          "422": {
+            "description": "Validation errors in the request body or query params.",
+            "schema": {
+              "$ref": "#/definitions/MessageItemCollection"
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "setup.manage",
+              "admin"
+            ]
+          }
+        ]
+      }
+    },
     "/inventory/v1/unit-attributes/{id}": {
       "get": {
         "tags": [
           "UnitAttribute"
         ],
         "summary": "Get unit attribute by id",
-        "description": "Get unit attribute by id<br>You must have at least one of these scopes: 'unitattributes.read, setup.read, setup.manage'.",
+        "description": "Get unit attribute by id\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitattributes.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnit-attributesByIdGet",
         "produces": [
           "application/json"
@@ -1739,7 +1825,7 @@
           "UnitAttribute"
         ],
         "summary": "Allows to modify unit attribute",
-        "description": "Here's a list of allowed operations:\r\n- Replace / Remove Description<br>You must have at least one of these scopes: 'unitattributes.manage, setup.manage'.",
+        "description": "Here\u0027s a list of allowed operations:\n- Replace / Remove Description\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitattributes.manage, setup.manage\u0027.",
         "operationId": "InventoryUnit-attributesByIdPatch",
         "consumes": [
           "application/json"
@@ -1818,7 +1904,7 @@
           "UnitAttribute"
         ],
         "summary": "Deletes unit attribute",
-        "description": "Deletes unit attribute<br>You must have at least one of these scopes: 'unitattributes.delete, setup.manage'.",
+        "description": "Deletes unit attribute\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitattributes.delete, setup.manage\u0027.",
         "operationId": "InventoryUnit-attributesByIdDelete",
         "produces": [
           "application/json"
@@ -1879,7 +1965,7 @@
           "UnitAttribute"
         ],
         "summary": "Check if a unit attribute exists",
-        "description": "Check if a unit attribute exists<br>You must have at least one of these scopes: 'unitattributes.read, setup.read, setup.manage'.",
+        "description": "Check if a unit attribute exists\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitattributes.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnit-attributesByIdHead",
         "parameters": [
           {
@@ -1934,7 +2020,7 @@
           "UnitAttribute"
         ],
         "summary": "Get unit attribute list",
-        "description": "Get unit attribute list<br>You must have at least one of these scopes: 'unitattributes.read, setup.read, setup.manage'.",
+        "description": "Get unit attribute list\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitattributes.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnit-attributesGet",
         "produces": [
           "application/json"
@@ -2009,7 +2095,7 @@
           "UnitAttribute"
         ],
         "summary": "Create a unit attribute",
-        "description": "Use this call to create a new unit attribute.<br>You must have at least one of these scopes: 'unitattributes.create, setup.manage'.",
+        "description": "Use this call to create a new unit attribute.\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitattributes.create, setup.manage\u0027.",
         "operationId": "InventoryUnit-attributesPost",
         "consumes": [
           "application/json"
@@ -2021,7 +2107,7 @@
           {
             "in": "header",
             "name": "Idempotency-Key",
-            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours.",
+            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe\u0027ll always send back the same response for requests made with the same key, \nand keys can\u0027t be reused with different request parameters. Keys expire after 24 hours.",
             "type": "string"
           },
           {
@@ -2095,7 +2181,7 @@
           "UnitGroup"
         ],
         "summary": "Create a unit group",
-        "description": "Use this call to create a new unit group.<br>You must have at least one of these scopes: 'unitgroups.create, setup.manage'.",
+        "description": "Use this call to create a new unit group.\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitgroups.create, setup.manage\u0027.",
         "operationId": "InventoryUnit-groupsPost",
         "consumes": [
           "application/json"
@@ -2107,7 +2193,7 @@
           {
             "in": "header",
             "name": "Idempotency-Key",
-            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe'll always send back the same response for requests made with the same key, \nand keys can't be reused with different request parameters. Keys expire after 24 hours.",
+            "description": "Unique key for safely retrying requests without accidentally performing the same operation twice. \nWe\u0027ll always send back the same response for requests made with the same key, \nand keys can\u0027t be reused with different request parameters. Keys expire after 24 hours.",
             "type": "string"
           },
           {
@@ -2179,7 +2265,7 @@
           "UnitGroup"
         ],
         "summary": "Get all unit groups, or all unit groups for a property",
-        "description": "Get the list of unit groups.<br>You must have at least one of these scopes: 'unitgroups.read, setup.read, setup.manage'.",
+        "description": "Get the list of unit groups.\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitgroups.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnit-groupsGet",
         "produces": [
           "application/json"
@@ -2196,14 +2282,14 @@
             "name": "unitGroupTypes",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "BedRoom",
                 "MeetingRoom",
                 "EventSpace",
                 "ParkingLot",
                 "Other"
-              ],
-              "type": "string"
+              ]
             }
           },
           {
@@ -2226,11 +2312,11 @@
             "description": "List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "property",
                 "connectedUnitGroups"
-              ],
-              "type": "string"
+              ]
             }
           }
         ],
@@ -2290,7 +2376,7 @@
           "UnitGroup"
         ],
         "summary": "Returns number of unit groups",
-        "description": "Returns number of unit groups matching the filter criteria<br>You must have at least one of these scopes: 'unitgroups.read, setup.read, setup.manage'.",
+        "description": "Returns number of unit groups matching the filter criteria\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitgroups.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnit-groups$countGet",
         "produces": [
           "application/json"
@@ -2307,14 +2393,14 @@
             "name": "unitGroupTypes",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "BedRoom",
                 "MeetingRoom",
                 "EventSpace",
                 "ParkingLot",
                 "Other"
-              ],
-              "type": "string"
+              ]
             }
           }
         ],
@@ -2371,7 +2457,7 @@
           "UnitGroup"
         ],
         "summary": "Check if a unit group exists",
-        "description": "Check if a unit group exists by id.<br>You must have at least one of these scopes: 'unitgroups.read, setup.read, setup.manage'.",
+        "description": "Check if a unit group exists by id.\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitgroups.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnit-groupsByIdHead",
         "parameters": [
           {
@@ -2424,7 +2510,7 @@
           "UnitGroup"
         ],
         "summary": "Get a unit group",
-        "description": "Get a unit group by id.<br>You must have at least one of these scopes: 'unitgroups.read, setup.read, setup.manage'.",
+        "description": "Get a unit group by id.\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitgroups.read, setup.read, setup.manage\u0027.",
         "operationId": "InventoryUnit-groupsByIdGet",
         "produces": [
           "application/json"
@@ -2440,7 +2526,7 @@
           {
             "in": "query",
             "name": "languages",
-            "description": "'all' or comma separated list of two-letter language codes (ISO Alpha-2)",
+            "description": "\u0027all\u0027 or comma separated list of two-letter language codes (ISO Alpha-2)",
             "type": "array",
             "items": {
               "type": "string"
@@ -2452,11 +2538,11 @@
             "description": "List of all embedded resources that should be expanded in the response. Possible values are: property, connectedUnitGroups. All other values will be silently ignored.",
             "type": "array",
             "items": {
+              "type": "string",
               "enum": [
                 "property",
                 "connectedUnitGroups"
-              ],
-              "type": "string"
+              ]
             }
           }
         ],
@@ -2511,7 +2597,7 @@
           "UnitGroup"
         ],
         "summary": "Replace a unit group",
-        "description": "Use this call to modify a unit group.<br>You must have at least one of these scopes: 'unitgroups.manage, setup.manage'.",
+        "description": "Use this call to modify a unit group.\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitgroups.manage, setup.manage\u0027.",
         "operationId": "InventoryUnit-groupsByIdPut",
         "consumes": [
           "application/json"
@@ -2587,7 +2673,7 @@
           "UnitGroup"
         ],
         "summary": "Delete a unit group",
-        "description": "Use this call to delete a unit group.<br>You must have at least one of these scopes: 'unitgroups.delete, setup.manage'.",
+        "description": "Use this call to delete a unit group.\u003Cbr\u003EYou must have at least one of these scopes: \u0027unitgroups.delete, setup.manage\u0027.",
         "operationId": "InventoryUnit-groupsByIdDelete",
         "produces": [
           "application/json"
@@ -2647,20 +2733,20 @@
   },
   "definitions": {
     "ActionModel[PropertyAction,NotAllowedPropertyActionReason]": {
+      "type": "object",
       "required": [
         "action",
         "isAllowed"
       ],
-      "type": "object",
       "properties": {
         "action": {
+          "type": "string",
           "enum": [
             "Delete",
             "Archive",
             "SetLive",
             "Reset"
-          ],
-          "type": "string"
+          ]
         },
         "isAllowed": {
           "type": "boolean"
@@ -2669,19 +2755,48 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/ActionReasonModel[NotAllowedPropertyActionReason]"
-          }
+          },
+          "x-nullable": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionModel[UnitAction,NotAllowedUnitActionReason]": {
+      "type": "object",
+      "required": [
+        "action",
+        "isAllowed"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "Delete",
+            "Archive"
+          ]
+        },
+        "isAllowed": {
+          "type": "boolean"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ActionReasonModel[NotAllowedUnitActionReason]"
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "ActionReasonModel[NotAllowedPropertyActionReason]": {
+      "type": "object",
       "required": [
         "code",
         "message"
       ],
-      "type": "object",
       "properties": {
         "code": {
+          "type": "string",
           "enum": [
             "DeleteNotAllowedForPropertyNotInStatusTest",
             "ArchiveNotAllowedForPropertyNotInStatusLive",
@@ -2689,42 +2804,72 @@
             "SetToLiveNotAllowedForPropertyNotInStatusTest",
             "SetToLiveNotAllowedForPropertyInNonLiveAccount",
             "ResetNotAllowedForPropertyNotInStatusTest"
-          ],
-          "type": "string"
+          ]
         },
         "message": {
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ActionReasonModel[NotAllowedUnitActionReason]": {
+      "type": "object",
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "DeleteNotAllowedOnArchivedUnit",
+            "DeleteNotAllowedBecauseUnitIsReferenced",
+            "DeleteNotAllowedBecauseUnitIsPartOfConnectingUnit",
+            "DeleteNotAllowedBecauseUnitWasPartOfArchivedCombinedUnit",
+            "UnitAlreadyArchived",
+            "ArchiveNotAllowedBecauseUnitCanBeDeleted",
+            "ArchiveNotAllowedBecauseAssignedToInHouseReservation",
+            "ArchiveNotAllowedBecauseAssignedToFutureConfirmedReservation",
+            "ArchiveNotAllowedBecauseLinkedToActiveOrFutureMaintenance",
+            "ArchiveNotAllowedBecausePartOfCombinedInventory"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "additionalProperties": false
     },
     "AddressModel": {
+      "type": "object",
       "required": [
         "addressLine1",
         "city",
         "countryCode",
         "postalCode"
       ],
-      "type": "object",
       "properties": {
         "addressLine1": {
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "addressLine2": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         },
         "postalCode": {
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "city": {
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "regionCode": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         },
         "countryCode": {
           "type": "string"
@@ -2736,22 +2881,25 @@
       "type": "object",
       "properties": {
         "iban": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         },
         "bic": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         },
         "bank": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "BulkCreateUnitsModel": {
+      "type": "object",
       "required": [
         "units"
       ],
-      "type": "object",
       "properties": {
         "units": {
           "type": "array",
@@ -2761,62 +2909,118 @@
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"units\": [\n    {\n      \"propertyId\": \"MUC\",\n      \"name\": \"A.201\",\n      \"description\": {\n        \"en\": \"Single room\",\n        \"de\": \"Einzelzimmer\"\n      },\n      \"unitGroupId\": \"MUC-SGL\",\n      \"maxPersons\": 1,\n      \"condition\": \"Clean\",\n      \"attributes\": [],\n      \"connectedUnits\": []\n    },\n    {\n      \"propertyId\": \"MUC\",\n      \"name\": \"A.103\",\n      \"description\": {\n        \"en\": \"Double room\",\n        \"de\": \"Doppelzimmer\"\n      },\n      \"unitGroupId\": \"MUC-DBL\",\n      \"maxPersons\": 2,\n      \"condition\": \"Clean\",\n      \"attributes\": [],\n      \"connectedUnits\": []\n    },\n    {\n      \"propertyId\": \"MUC\",\n      \"name\": \"S.102\",\n      \"description\": {\n        \"en\": \"Suite room\",\n        \"de\": \"Suite Zimmer\"\n      },\n      \"unitGroupId\": \"MUC-SUI\",\n      \"maxPersons\": 3,\n      \"condition\": \"Clean\",\n      \"attributes\": [],\n      \"connectedUnits\": [\n        {\n          \"unitId\": \"MUC-MTA\"\n        },\n        {\n          \"unitId\": \"MUC-JQI\"\n        }\n      ]\n    }\n  ]\n}"
+      "example": {
+        "units": [
+          {
+            "propertyId": "MUC",
+            "name": "A.201",
+            "description": {
+              "en": "Single room",
+              "de": "Einzelzimmer"
+            },
+            "unitGroupId": "MUC-SGL",
+            "maxPersons": 1,
+            "condition": "Clean",
+            "attributes": [],
+            "connectedUnits": []
+          },
+          {
+            "propertyId": "MUC",
+            "name": "A.103",
+            "description": {
+              "en": "Double room",
+              "de": "Doppelzimmer"
+            },
+            "unitGroupId": "MUC-DBL",
+            "maxPersons": 2,
+            "condition": "Clean",
+            "attributes": [],
+            "connectedUnits": []
+          },
+          {
+            "propertyId": "MUC",
+            "name": "S.102",
+            "description": {
+              "en": "Suite room",
+              "de": "Suite Zimmer"
+            },
+            "unitGroupId": "MUC-SUI",
+            "maxPersons": 3,
+            "condition": "Clean",
+            "attributes": [],
+            "connectedUnits": [
+              {
+                "unitId": "MUC-MTA"
+              },
+              {
+                "unitId": "MUC-JQI"
+              }
+            ]
+          }
+        ]
+      }
     },
     "BulkUnitsCreatedModel": {
+      "type": "object",
       "required": [
         "ids"
       ],
-      "type": "object",
       "properties": {
         "ids": {
-          "description": "The unit ids",
           "type": "array",
+          "description": "The unit ids",
           "items": {
             "type": "string"
           }
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"ids\": [\n    \"MUC-CFP\",\n    \"MUC-XTA\",\n    \"MUC-CPZ\"\n  ]\n}"
+      "example": {
+        "ids": [
+          "MUC-CFP",
+          "MUC-XTA",
+          "MUC-CPZ"
+        ]
+      }
     },
     "ConnectedUnitGroupModel": {
+      "type": "object",
       "required": [
         "description",
         "id",
         "memberCount",
         "name"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit group id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit group id"
         },
         "name": {
+          "type": "string",
           "description": "The name for the unit group",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
+          "type": "string",
           "description": "The description for the unit group",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "memberCount": {
-          "format": "int32",
+          "type": "integer",
           "description": "The number of units taken from this connected unit group",
-          "type": "integer"
+          "format": "int32"
         },
         "maxPersons": {
-          "format": "int32",
+          "type": "integer",
           "description": "Maximum number of persons for the unit group",
-          "type": "integer"
+          "format": "int32"
         }
       },
       "additionalProperties": false
     },
     "ConnectedUnitModel": {
+      "type": "object",
       "required": [
         "condition",
         "description",
@@ -2825,148 +3029,157 @@
         "name",
         "unitGroupId"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit id"
         },
         "name": {
+          "type": "string",
           "description": "The name for the unit",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
+          "type": "string",
           "description": "The description for the unit",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "unitGroupId": {
-          "description": "The unit group id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit group id"
         },
         "condition": {
+          "type": "string",
           "description": "The current status of the unit",
           "enum": [
             "Clean",
             "CleanToBeInspected",
             "Dirty"
-          ],
-          "type": "string"
+          ]
         },
         "maxPersons": {
-          "format": "int32",
+          "type": "integer",
           "description": "Maximum number of persons for the unit",
-          "type": "integer"
+          "format": "int32"
         }
       },
       "additionalProperties": false
     },
     "CountModel": {
+      "type": "object",
       "required": [
         "count"
       ],
-      "type": "object",
       "properties": {
         "count": {
-          "format": "int64",
-          "type": "integer"
+          "type": "integer",
+          "format": "int64"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"count\": 50\n}"
+      "example": {
+        "count": 50
+      }
     },
     "CountryListModel": {
+      "type": "object",
       "required": [
         "countryCodes"
       ],
-      "type": "object",
       "properties": {
         "countryCodes": {
-          "description": "List of ISO country codes.",
           "type": "array",
+          "description": "List of ISO country codes.",
           "items": {
             "type": "string"
           }
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"countryCodes\": [\n    \"DE\",\n    \"US\"\n  ]\n}"
+      "example": {
+        "countryCodes": [
+          "DE",
+          "US"
+        ]
+      }
     },
     "CreateAddressModel": {
+      "type": "object",
       "required": [
         "addressLine1",
         "city",
         "countryCode",
         "postalCode"
       ],
-      "type": "object",
       "properties": {
         "addressLine1": {
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "addressLine2": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         },
         "postalCode": {
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "city": {
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "regionCode": {
+          "type": "string",
           "description": "The ISO 3166-2 code",
           "maxLength": 6,
           "minLength": 2,
-          "type": "string"
+          "x-nullable": true
         },
         "countryCode": {
+          "type": "string",
           "description": "The country code, in ISO 3166-1 alpha-2 code",
           "maxLength": 2,
-          "minLength": 2,
-          "type": "string"
+          "minLength": 2
         }
       },
       "additionalProperties": false
     },
     "CreateConnectedUnitGroupModel": {
+      "type": "object",
       "required": [
         "memberCount",
         "unitGroupId"
       ],
-      "type": "object",
       "properties": {
         "unitGroupId": {
-          "description": "The connected unit group id",
-          "type": "string"
+          "type": "string",
+          "description": "The connected unit group id"
         },
         "memberCount": {
-          "format": "int32",
+          "type": "integer",
           "description": "The number of units for this connected unit group",
+          "format": "int32",
           "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer"
+          "minimum": 1
         }
       },
       "additionalProperties": false
     },
     "CreateConnectedUnitModel": {
+      "type": "object",
       "required": [
         "unitId"
       ],
-      "type": "object",
       "properties": {
         "unitId": {
-          "description": "The connected unit id",
-          "type": "string"
+          "type": "string",
+          "description": "The connected unit id"
         }
       },
       "additionalProperties": false
     },
     "CreatePropertyModel": {
+      "type": "object",
       "required": [
         "code",
         "commercialRegisterEntry",
@@ -2980,47 +3193,50 @@
         "taxId",
         "timeZone"
       ],
-      "type": "object",
       "properties": {
         "code": {
+          "type": "string",
           "description": "The code for the property that can be shown in reports and table views",
           "maxLength": 10,
           "minLength": 3,
-          "pattern": "^[a-zA-Z0-9_]*$",
-          "type": "string"
+          "pattern": "^[a-zA-Z0-9_]*$"
         },
         "name": {
-          "description": "The name for the property",
           "type": "object",
+          "description": "The name for the property",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "companyName": {
+          "type": "string",
           "description": "The legal name of the company running the property.",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "managingDirectors": {
+          "type": "string",
           "description": "The managing director(s) of the company, as they should appear on invoices",
-          "type": "string"
+          "x-nullable": true
         },
         "commercialRegisterEntry": {
+          "type": "string",
           "description": "The entry in the Commercial Reigster of the company running the property, as it should appear on invoices",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "taxId": {
+          "type": "string",
           "description": "The Tax-ID of the company running the property, as it should appear on invoices",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
-          "description": "The description for the property",
           "type": "object",
+          "description": "The description for the property",
           "additionalProperties": {
-            "type": "string"
-          }
+            "type": "string",
+            "x-nullable": true
+          },
+          "x-nullable": true
         },
         "location": {
           "$ref": "#/definitions/CreateAddressModel"
@@ -3029,67 +3245,106 @@
           "$ref": "#/definitions/BankAccountModel"
         },
         "paymentTerms": {
-          "description": "The payment terms used for all rate plans",
           "type": "object",
+          "description": "The payment terms used for all rate plans",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "timeZone": {
-          "description": "The time zone name of the property from the IANA Time Zone Database.\r\n(see: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)",
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "description": "The time zone name of the property from the IANA Time Zone Database.\n(see: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)",
+          "minLength": 1
         },
         "defaultCheckInTime": {
-          "description": "The default check-in time<br />A time (without fractional second part) as defined in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
-          "type": "string"
+          "type": "string",
+          "description": "The default check-in time\u003Cbr /\u003EA time (without fractional second part) as defined in the \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E"
         },
         "defaultCheckOutTime": {
-          "description": "The default check-out time<br />A time (without fractional second part) as defined in the <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
-          "type": "string"
+          "type": "string",
+          "description": "The default check-out time\u003Cbr /\u003EA time (without fractional second part) as defined in the \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E"
         },
         "currencyCode": {
-          "description": "The currency a property works with.",
-          "type": "string"
+          "type": "string",
+          "description": "The currency a property works with."
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"code\": \"MUC\",\n  \"name\": {\n    \"en\": \"Demo Hotel Munich\",\n    \"de\": \"Demo Hotel München\"\n  },\n  \"companyName\": \"Hotel Münchner GmbH\",\n  \"managingDirectors\": \"Franz-Josef Gruber\",\n  \"commercialRegisterEntry\": \"Amtsgericht München, HRB 279336\",\n  \"taxId\": \"DE311053702\",\n  \"description\": {\n    \"en\": \"This is the demo hotel Munich\",\n    \"de\": \"Dies ist das Demo Hotel München\"\n  },\n  \"location\": {\n    \"addressLine1\": \"Marienplatz 1\",\n    \"postalCode\": \"80331\",\n    \"city\": \"München\",\n    \"countryCode\": \"DE\"\n  },\n  \"bankAccount\": {\n    \"iban\": \"DE44 5001 0517 5407 3249 31\",\n    \"bic\": \"SSKMDEMMXXX\",\n    \"bank\": \"Stadtsparkasse München\"\n  },\n  \"paymentTerms\": {\n    \"en\": \"Pay on checkout\",\n    \"de\": \"Zahlung bei Checkout\"\n  },\n  \"timeZone\": \"Europe/Berlin\",\n  \"defaultCheckInTime\": \"17:00:00\",\n  \"defaultCheckOutTime\": \"11:00:00\",\n  \"currencyCode\": \"EUR\"\n}"
+      "example": {
+        "code": "MUC",
+        "name": {
+          "en": "Demo Hotel Munich",
+          "de": "Demo Hotel M\u00FCnchen"
+        },
+        "companyName": "Hotel M\u00FCnchner GmbH",
+        "managingDirectors": "Franz-Josef Gruber",
+        "commercialRegisterEntry": "Amtsgericht M\u00FCnchen, HRB 279336",
+        "taxId": "DE311053702",
+        "description": {
+          "en": "This is the demo hotel Munich",
+          "de": "Dies ist das Demo Hotel M\u00FCnchen"
+        },
+        "location": {
+          "addressLine1": "Marienplatz 1",
+          "postalCode": "80331",
+          "city": "M\u00FCnchen",
+          "countryCode": "DE"
+        },
+        "bankAccount": {
+          "iban": "DE44 5001 0517 5407 3249 31",
+          "bic": "SSKMDEMMXXX",
+          "bank": "Stadtsparkasse M\u00FCnchen"
+        },
+        "paymentTerms": {
+          "en": "Pay on checkout",
+          "de": "Zahlung bei Checkout"
+        },
+        "timeZone": "Europe/Berlin",
+        "defaultCheckInTime": "17:00:00",
+        "defaultCheckOutTime": "11:00:00",
+        "currencyCode": "EUR"
+      }
     },
     "CreateUnitAttributeDefinitionModel": {
+      "type": "object",
       "required": [
         "name"
       ],
-      "type": "object",
       "properties": {
         "name": {
+          "type": "string",
           "description": "The name of the unit attribute",
           "maxLength": 50,
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
+          "type": "string",
           "description": "The description of the unit attribute",
-          "type": "string"
+          "x-nullable": true
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"name\": \"Floor 1\",\n  \"description\": \"Floor number\"\n}"
+      "example": {
+        "name": "Floor 1",
+        "description": "Floor number"
+      }
     },
     "CreateUnitAttributeModel": {
+      "type": "object",
       "required": [
         "id"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "Id of unit attribute",
-          "type": "string"
+          "type": "string",
+          "description": "Id of unit attribute"
         }
       },
       "additionalProperties": false
     },
     "CreateUnitGroupModel": {
+      "type": "object",
       "required": [
         "code",
         "description",
@@ -3097,48 +3352,51 @@
         "name",
         "propertyId"
       ],
-      "type": "object",
       "properties": {
         "code": {
+          "type": "string",
           "description": "The code for the unit group that can be shown in reports and table views",
           "maxLength": 10,
           "minLength": 3,
-          "pattern": "^[a-zA-Z0-9_]*$",
-          "type": "string"
+          "pattern": "^[a-zA-Z0-9_]*$"
         },
         "propertyId": {
-          "description": "The id of the property where unit group will be created",
-          "type": "string"
+          "type": "string",
+          "description": "The id of the property where unit group will be created"
         },
         "name": {
-          "description": "The name for the unit group",
           "type": "object",
+          "description": "The name for the unit group",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "description": {
-          "description": "The description for the unit group",
           "type": "object",
+          "description": "The description for the unit group",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "maxPersons": {
-          "format": "int32",
+          "type": "integer",
           "description": "Maximum number of persons for the unit group",
+          "format": "int32",
           "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer"
+          "minimum": 1
         },
         "rank": {
+          "type": "integer",
+          "description": "The unit group rank\nRestrictions:\n- Should be greater or equal to one",
           "format": "int32",
-          "description": "The unit group rank\r\nRestrictions:\r\n- Should be greater or equal to one",
           "maximum": 2147483647,
           "minimum": 1,
-          "type": "integer"
+          "x-nullable": true
         },
         "type": {
+          "type": "string",
           "description": "The unit group type",
           "enum": [
             "BedRoom",
@@ -3146,131 +3404,177 @@
             "EventSpace",
             "ParkingLot"
           ],
-          "type": "string"
+          "x-nullable": true
         },
         "connectedUnitGroups": {
-          "description": "The list of connected unit groups this unit group is composed of",
           "type": "array",
+          "description": "The list of connected unit groups this unit group is composed of",
           "items": {
             "$ref": "#/definitions/CreateConnectedUnitGroupModel"
-          }
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"code\": \"DBL\",\n  \"propertyId\": \"MUC\",\n  \"name\": {\n    \"en\": \"Double Room\",\n    \"de\": \"Doppelzimmer\"\n  },\n  \"description\": {\n    \"en\": \"This is a nice room with as kingsize bed and flat screen\",\n    \"de\": \"Dies ist ein schönes Zimmer mit Kingsize-Bett und Flachbildschirm\"\n  },\n  \"maxPersons\": 4,\n  \"rank\": 1,\n  \"type\": \"BedRoom\"\n}"
+      "example": {
+        "code": "DBL",
+        "propertyId": "MUC",
+        "name": {
+          "en": "Double Room",
+          "de": "Doppelzimmer"
+        },
+        "description": {
+          "en": "This is a nice room with as kingsize bed and flat screen",
+          "de": "Dies ist ein sch\u00F6nes Zimmer mit Kingsize-Bett und Flachbildschirm"
+        },
+        "maxPersons": 4,
+        "rank": 1,
+        "type": "BedRoom"
+      }
     },
     "CreateUnitModel": {
+      "type": "object",
       "required": [
         "description",
         "maxPersons",
         "name",
         "propertyId"
       ],
-      "type": "object",
       "properties": {
         "propertyId": {
-          "description": "The id of the property where the unit will be created",
-          "type": "string"
+          "type": "string",
+          "description": "The id of the property where the unit will be created"
         },
         "name": {
+          "type": "string",
           "description": "The name for the unit",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
-          "description": "The description for the unit",
           "type": "object",
+          "description": "The description for the unit",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "unitGroupId": {
+          "type": "string",
           "description": "The id of the unit group",
-          "type": "string"
+          "x-nullable": true
         },
         "maxPersons": {
-          "format": "int32",
+          "type": "integer",
           "description": "Maximum number of persons for the unit",
+          "format": "int32",
           "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer"
+          "minimum": 1
         },
         "condition": {
+          "type": "string",
           "description": "Condition of the unit",
           "enum": [
             "Clean",
             "CleanToBeInspected",
             "Dirty"
           ],
-          "type": "string"
+          "x-nullable": true
         },
         "attributes": {
-          "description": "Collection of user defined attributes of unit",
           "type": "array",
+          "description": "Collection of user defined attributes of unit",
           "items": {
             "$ref": "#/definitions/CreateUnitAttributeModel"
-          }
+          },
+          "x-nullable": true
         },
         "connectedUnits": {
-          "description": "The list of units this unit is composed of",
           "type": "array",
+          "description": "The list of units this unit is composed of",
           "items": {
             "$ref": "#/definitions/CreateConnectedUnitModel"
-          }
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"propertyId\": \"MUC\",\n  \"name\": \"S.102\",\n  \"description\": {\n    \"en\": \"Suite room\",\n    \"de\": \"Suite Zimmer\"\n  },\n  \"unitGroupId\": \"MUC-SUI\",\n  \"maxPersons\": 3,\n  \"condition\": \"Clean\",\n  \"attributes\": [],\n  \"connectedUnits\": [\n    {\n      \"unitId\": \"MUC-MTA\"\n    },\n    {\n      \"unitId\": \"MUC-JQI\"\n    }\n  ]\n}"
+      "example": {
+        "propertyId": "MUC",
+        "name": "S.102",
+        "description": {
+          "en": "Suite room",
+          "de": "Suite Zimmer"
+        },
+        "unitGroupId": "MUC-SUI",
+        "maxPersons": 3,
+        "condition": "Clean",
+        "attributes": [],
+        "connectedUnits": [
+          {
+            "unitId": "MUC-MTA"
+          },
+          {
+            "unitId": "MUC-JQI"
+          }
+        ]
+      }
     },
     "EmbeddedPropertyModel": {
+      "type": "object",
       "required": [
         "id"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The property id",
-          "type": "string"
+          "type": "string",
+          "description": "The property id"
         },
         "code": {
+          "type": "string",
           "description": "The code for the property that can be shown in reports and table views",
-          "type": "string"
+          "x-nullable": true
         },
         "name": {
+          "type": "string",
           "description": "The name for the property",
-          "type": "string"
+          "x-nullable": true
         },
         "description": {
-          "description": "The description for the property",
           "type": "string",
-          "readOnly": true
+          "description": "The description for the property",
+          "readOnly": true,
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "EmbeddedUnitGroupModel": {
+      "type": "object",
       "required": [
         "id"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit group id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit group id"
         },
         "code": {
+          "type": "string",
           "description": "The code for the unit group that can be shown in reports and table views",
-          "type": "string"
+          "x-nullable": true
         },
         "name": {
+          "type": "string",
           "description": "The name for the unit group",
-          "type": "string"
+          "x-nullable": true
         },
         "description": {
+          "type": "string",
           "description": "The description for the unit group",
-          "type": "string"
+          "x-nullable": true
         },
         "type": {
+          "type": "string",
           "description": "The unit group type",
           "enum": [
             "BedRoom",
@@ -3279,32 +3583,35 @@
             "ParkingLot",
             "Other"
           ],
-          "type": "string"
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "EmbeddedUnitModel": {
+      "type": "object",
       "required": [
         "id"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit id"
         },
         "name": {
+          "type": "string",
           "description": "The name for the unit",
-          "type": "string"
+          "x-nullable": true
         },
         "description": {
+          "type": "string",
           "description": "The description for the unit",
-          "type": "string"
+          "x-nullable": true
         },
         "unitGroupId": {
+          "type": "string",
           "description": "The unit group id",
-          "type": "string"
+          "x-nullable": true
         }
       },
       "additionalProperties": false
@@ -3317,7 +3624,8 @@
           "items": {
             "type": "string"
           },
-          "readOnly": true
+          "readOnly": true,
+          "x-nullable": true
         }
       },
       "additionalProperties": false
@@ -3325,34 +3633,42 @@
     "Operation": {
       "type": "object",
       "properties": {
-        "value": { },
+        "value": {
+          "x-nullable": true
+        },
         "path": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         },
         "op": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         },
         "from": {
-          "type": "string"
+          "type": "string",
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "PropertyCreatedModel": {
+      "type": "object",
       "required": [
         "id"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The property id",
-          "type": "string"
+          "type": "string",
+          "description": "The property id"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"id\": \"MUC\"\n}"
+      "example": {
+        "id": "MUC"
+      }
     },
     "PropertyItemModel": {
+      "type": "object",
       "required": [
         "code",
         "commercialRegisterEntry",
@@ -3369,51 +3685,53 @@
         "taxId",
         "timeZone"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The property id",
-          "type": "string"
+          "type": "string",
+          "description": "The property id"
         },
         "code": {
-          "description": "The code for the property that can be shown in reports and table views",
-          "type": "string"
+          "type": "string",
+          "description": "The code for the property that can be shown in reports and table views"
         },
         "propertyTemplateId": {
+          "type": "string",
           "description": "The id of the property used as a template while creating the property",
-          "type": "string"
+          "x-nullable": true
         },
         "isTemplate": {
-          "description": "Whether the property can be used as a template for other properties",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the property can be used as a template for other properties"
         },
         "name": {
+          "type": "string",
           "description": "The name for the property",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
+          "type": "string",
           "description": "The description for the property",
-          "type": "string"
+          "x-nullable": true
         },
         "companyName": {
+          "type": "string",
           "description": "The legal name of the company running the property.",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "managingDirectors": {
+          "type": "string",
           "description": "The managing director(s) of the company, as they should appear on invoices",
-          "type": "string"
+          "x-nullable": true
         },
         "commercialRegisterEntry": {
+          "type": "string",
           "description": "The entry in the Commercial Register of the company running the property, as it should appear on invoices",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "taxId": {
+          "type": "string",
           "description": "The Tax-ID of the company running the property, as it should appear on invoices",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "location": {
           "$ref": "#/definitions/AddressModel"
@@ -3422,72 +3740,130 @@
           "$ref": "#/definitions/BankAccountModel"
         },
         "paymentTerms": {
-          "description": "The payment terms used for all rate plans",
           "type": "object",
+          "description": "The payment terms used for all rate plans",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "timeZone": {
-          "description": "The time zone name of the property from the IANA Time Zone Database.\r\n(see: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)",
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "description": "The time zone name of the property from the IANA Time Zone Database.\n(see: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)",
+          "minLength": 1
         },
         "currencyCode": {
-          "description": "The currency a property works with.",
-          "type": "string"
+          "type": "string",
+          "description": "The currency a property works with."
         },
         "created": {
-          "format": "date-time",
-          "description": "Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
-          "type": "string"
+          "type": "string",
+          "description": "Date of creation\u003Cbr /\u003EA date and time (without fractional second part) in UTC or with UTC offset as defined in \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E",
+          "format": "date-time"
         },
         "status": {
+          "type": "string",
           "description": "The status of the property",
           "enum": [
             "Test",
             "Live"
-          ],
-          "type": "string"
+          ]
         },
         "isArchived": {
-          "description": "Is the property archived",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Is the property archived"
         },
         "actions": {
-          "description": "The list of actions for this property",
           "type": "array",
+          "description": "The list of actions for this property",
           "items": {
             "$ref": "#/definitions/ActionModel[PropertyAction,NotAllowedPropertyActionReason]"
-          }
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "PropertyListModel": {
+      "type": "object",
       "required": [
         "count",
         "properties"
       ],
-      "type": "object",
       "properties": {
         "properties": {
-          "description": "List of properties",
           "type": "array",
+          "description": "List of properties",
           "items": {
             "$ref": "#/definitions/PropertyItemModel"
           }
         },
         "count": {
-          "format": "int64",
+          "type": "integer",
           "description": "Total count of items",
-          "type": "integer"
+          "format": "int64"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"properties\": [\n    {\n      \"id\": \"MUC\",\n      \"code\": \"MUC\",\n      \"isTemplate\": true,\n      \"name\": \"Demo Hotel Munich\",\n      \"description\": \"This is the demo hotel Munich\",\n      \"companyName\": \"Company\",\n      \"commercialRegisterEntry\": \"CRE\",\n      \"taxId\": \"Tax\",\n      \"location\": {\n        \"addressLine1\": \"Marienplatz 1\",\n        \"postalCode\": \"80331\",\n        \"city\": \"München\",\n        \"countryCode\": \"DE\"\n      },\n      \"paymentTerms\": {\n        \"de\": \"Zahlbar bei Check In\",\n        \"en\": \"Payment on check-in\"\n      },\n      \"timeZone\": \"Europe/Berlin\",\n      \"currencyCode\": \"EUR\",\n      \"created\": \"0001-01-01T00:00:00Z\",\n      \"status\": \"Test\",\n      \"isArchived\": false\n    },\n    {\n      \"id\": \"BER\",\n      \"code\": \"BER\",\n      \"propertyTemplateId\": \"MUC\",\n      \"isTemplate\": false,\n      \"name\": \"Demo Hotel Berlin\",\n      \"description\": \"This is the demo hotel Berlin\",\n      \"companyName\": \"Company\",\n      \"commercialRegisterEntry\": \"CRE\",\n      \"taxId\": \"Tax\",\n      \"location\": {\n        \"addressLine1\": \"Mohrenstraße 30\",\n        \"postalCode\": \"10117\",\n        \"city\": \"Berlin\",\n        \"countryCode\": \"DE\"\n      },\n      \"paymentTerms\": {\n        \"de\": \"Zahlbar bei Check In\",\n        \"en\": \"Payment on check-in\"\n      },\n      \"timeZone\": \"Europe/Berlin\",\n      \"currencyCode\": \"EUR\",\n      \"created\": \"0001-01-01T00:00:00Z\",\n      \"status\": \"Test\",\n      \"isArchived\": false\n    }\n  ],\n  \"count\": 0\n}"
+      "example": {
+        "properties": [
+          {
+            "id": "MUC",
+            "code": "MUC",
+            "isTemplate": true,
+            "name": "Demo Hotel Munich",
+            "description": "This is the demo hotel Munich",
+            "companyName": "Company",
+            "commercialRegisterEntry": "CRE",
+            "taxId": "Tax",
+            "location": {
+              "addressLine1": "Marienplatz 1",
+              "postalCode": "80331",
+              "city": "M\u00FCnchen",
+              "countryCode": "DE"
+            },
+            "paymentTerms": {
+              "de": "Zahlbar bei Check In",
+              "en": "Payment on check-in"
+            },
+            "timeZone": "Europe/Berlin",
+            "currencyCode": "EUR",
+            "created": "0001-01-01T00:00:00Z",
+            "status": "Test",
+            "isArchived": false
+          },
+          {
+            "id": "BER",
+            "code": "BER",
+            "propertyTemplateId": "MUC",
+            "isTemplate": false,
+            "name": "Demo Hotel Berlin",
+            "description": "This is the demo hotel Berlin",
+            "companyName": "Company",
+            "commercialRegisterEntry": "CRE",
+            "taxId": "Tax",
+            "location": {
+              "addressLine1": "Mohrenstra\u00DFe 30",
+              "postalCode": "10117",
+              "city": "Berlin",
+              "countryCode": "DE"
+            },
+            "paymentTerms": {
+              "de": "Zahlbar bei Check In",
+              "en": "Payment on check-in"
+            },
+            "timeZone": "Europe/Berlin",
+            "currencyCode": "EUR",
+            "created": "0001-01-01T00:00:00Z",
+            "status": "Test",
+            "isArchived": false
+          }
+        ],
+        "count": 0
+      }
     },
     "PropertyModel": {
+      "type": "object",
       "description": "With this request you can create a new property",
       "required": [
         "code",
@@ -3505,56 +3881,60 @@
         "taxId",
         "timeZone"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The property id",
-          "type": "string"
+          "type": "string",
+          "description": "The property id"
         },
         "code": {
-          "description": "The code for the property that can be shown in reports and table views",
-          "type": "string"
+          "type": "string",
+          "description": "The code for the property that can be shown in reports and table views"
         },
         "propertyTemplateId": {
+          "type": "string",
           "description": "The id of the property used as a template while creating the property",
-          "type": "string"
+          "x-nullable": true
         },
         "isTemplate": {
-          "description": "Whether the property can be used as a template for other properties",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Whether the property can be used as a template for other properties"
         },
         "name": {
-          "description": "The name for the property",
           "type": "object",
+          "description": "The name for the property",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "description": {
-          "description": "The description for the property",
           "type": "object",
+          "description": "The description for the property",
           "additionalProperties": {
-            "type": "string"
-          }
+            "type": "string",
+            "x-nullable": true
+          },
+          "x-nullable": true
         },
         "companyName": {
+          "type": "string",
           "description": "The legal name of the company running the property.",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "managingDirectors": {
+          "type": "string",
           "description": "The managing director(s) of the company, as they should appear on invoices",
-          "type": "string"
+          "x-nullable": true
         },
         "commercialRegisterEntry": {
+          "type": "string",
           "description": "The entry in the Commercial Register of the company running the property, as it should appear on invoices",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "taxId": {
+          "type": "string",
           "description": "The Tax-ID of the company running the property, as it should appear on invoices",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "location": {
           "$ref": "#/definitions/AddressModel"
@@ -3563,227 +3943,308 @@
           "$ref": "#/definitions/BankAccountModel"
         },
         "paymentTerms": {
-          "description": "The payment terms used for all rate plans",
           "type": "object",
+          "description": "The payment terms used for all rate plans",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "timeZone": {
-          "description": "The time zone name of the property from the IANA Time Zone Database.\r\n(see: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)",
-          "minLength": 1,
-          "type": "string"
+          "type": "string",
+          "description": "The time zone name of the property from the IANA Time Zone Database.\n(see: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)",
+          "minLength": 1
         },
         "currencyCode": {
-          "description": "The currency a property works with.",
-          "type": "string"
+          "type": "string",
+          "description": "The currency a property works with."
         },
         "created": {
-          "format": "date-time",
-          "description": "Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
-          "type": "string"
+          "type": "string",
+          "description": "Date of creation\u003Cbr /\u003EA date and time (without fractional second part) in UTC or with UTC offset as defined in \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E",
+          "format": "date-time"
         },
         "status": {
+          "type": "string",
           "description": "The status of the property",
           "enum": [
             "Test",
             "Live"
-          ],
-          "type": "string"
+          ]
         },
         "isArchived": {
-          "description": "Is the property archived",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Is the property archived"
         },
         "actions": {
-          "description": "The list of actions for this property",
           "type": "array",
+          "description": "The list of actions for this property",
           "items": {
             "$ref": "#/definitions/ActionModel[PropertyAction,NotAllowedPropertyActionReason]"
-          }
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"id\": \"MUC\",\n  \"code\": \"MUC\",\n  \"propertyTemplateId\": \"BER\",\n  \"isTemplate\": false,\n  \"name\": {\n    \"en\": \"Demo Hotel Munich\",\n    \"de\": \"Demo Hotel München\"\n  },\n  \"description\": {\n    \"en\": \"This is the demo hotel Munich\",\n    \"de\": \"Dies ist das Demo Hotel München\"\n  },\n  \"companyName\": \"Hotel Münchner GmbH\",\n  \"managingDirectors\": \"Franz-Josef Gruber\",\n  \"commercialRegisterEntry\": \"Amtsgericht München, HRB 279336\",\n  \"taxId\": \"DE311053702\",\n  \"location\": {\n    \"addressLine1\": \"Marienplatz 1\",\n    \"postalCode\": \"80331\",\n    \"city\": \"München\",\n    \"countryCode\": \"DE\"\n  },\n  \"bankAccount\": {\n    \"iban\": \"DE44 5001 0517 5407 3249 31\",\n    \"bic\": \"SSKMDEMMXXX\",\n    \"bank\": \"Stadtsparkasse München\"\n  },\n  \"paymentTerms\": {\n    \"en\": \"Pay on checkout\",\n    \"de\": \"Zahlung bei Checkout\"\n  },\n  \"timeZone\": \"Europe/Berlin\",\n  \"currencyCode\": \"EUR\",\n  \"created\": \"0001-01-01T00:00:00Z\",\n  \"status\": \"Test\",\n  \"isArchived\": false\n}"
+      "example": {
+        "id": "MUC",
+        "code": "MUC",
+        "propertyTemplateId": "BER",
+        "isTemplate": false,
+        "name": {
+          "en": "Demo Hotel Munich",
+          "de": "Demo Hotel M\u00FCnchen"
+        },
+        "description": {
+          "en": "This is the demo hotel Munich",
+          "de": "Dies ist das Demo Hotel M\u00FCnchen"
+        },
+        "companyName": "Hotel M\u00FCnchner GmbH",
+        "managingDirectors": "Franz-Josef Gruber",
+        "commercialRegisterEntry": "Amtsgericht M\u00FCnchen, HRB 279336",
+        "taxId": "DE311053702",
+        "location": {
+          "addressLine1": "Marienplatz 1",
+          "postalCode": "80331",
+          "city": "M\u00FCnchen",
+          "countryCode": "DE"
+        },
+        "bankAccount": {
+          "iban": "DE44 5001 0517 5407 3249 31",
+          "bic": "SSKMDEMMXXX",
+          "bank": "Stadtsparkasse M\u00FCnchen"
+        },
+        "paymentTerms": {
+          "en": "Pay on checkout",
+          "de": "Zahlung bei Checkout"
+        },
+        "timeZone": "Europe/Berlin",
+        "currencyCode": "EUR",
+        "created": "0001-01-01T00:00:00Z",
+        "status": "Test",
+        "isArchived": false
+      }
     },
     "ReplaceConnectedUnitGroupModel": {
+      "type": "object",
       "required": [
         "memberCount",
         "unitGroupId"
       ],
-      "type": "object",
       "properties": {
         "unitGroupId": {
-          "description": "The connected unit group id",
-          "type": "string"
+          "type": "string",
+          "description": "The connected unit group id"
         },
         "memberCount": {
-          "format": "int32",
+          "type": "integer",
           "description": "The number of units for this connected unit group",
+          "format": "int32",
           "maximum": 2147483647,
-          "minimum": 1,
-          "type": "integer"
+          "minimum": 1
         }
       },
       "additionalProperties": false
     },
     "ReplaceUnitGroupModel": {
+      "type": "object",
       "required": [
         "description",
         "name"
       ],
-      "type": "object",
       "properties": {
         "name": {
-          "description": "The name for the unit group",
           "type": "object",
+          "description": "The name for the unit group",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "description": {
-          "description": "The description for the unit group",
           "type": "object",
+          "description": "The description for the unit group",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "maxPersons": {
-          "format": "int32",
-          "description": "Maximum number of persons for the unit group.\r\nIf this value is increased, the surcharges for the related rate plans must be specified in order for the rate plans to be sellable for the new possible occupancies.",
-          "type": "integer"
+          "type": "integer",
+          "description": "Maximum number of persons for the unit group.\nIf this value is increased, the surcharges for the related rate plans must be specified in order for the rate plans to be sellable for the new possible occupancies.",
+          "format": "int32"
         },
         "rank": {
+          "type": "integer",
+          "description": "The unit group rank\nRestrictions:\n- Should be greater or equal to one",
           "format": "int32",
-          "description": "The unit group rank\r\nRestrictions:\r\n- Should be greater or equal to one",
           "maximum": 2147483647,
           "minimum": 1,
-          "type": "integer"
+          "x-nullable": true
         },
         "connectedUnitGroups": {
-          "description": "The list of connected unit groups this unit group is composed of",
           "type": "array",
+          "description": "The list of connected unit groups this unit group is composed of",
           "items": {
             "$ref": "#/definitions/ReplaceConnectedUnitGroupModel"
-          }
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"name\": {\n    \"en\": \"Double Room\",\n    \"de\": \"Doppelzimmer\"\n  },\n  \"description\": {\n    \"en\": \"This is a nice room with as kingsize bed and flat screen\",\n    \"de\": \"Dies ist ein schönes Zimmer mit Kingsize-Bett und Flachbildschirm\"\n  },\n  \"maxPersons\": 4,\n  \"rank\": 2\n}"
+      "example": {
+        "name": {
+          "en": "Double Room",
+          "de": "Doppelzimmer"
+        },
+        "description": {
+          "en": "This is a nice room with as kingsize bed and flat screen",
+          "de": "Dies ist ein sch\u00F6nes Zimmer mit Kingsize-Bett und Flachbildschirm"
+        },
+        "maxPersons": 4,
+        "rank": 2
+      }
     },
     "UnitAttributeDefinitionCreatedModel": {
+      "type": "object",
       "required": [
         "id"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit attribute id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit attribute id"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"id\": \"FLOOR\"\n}"
+      "example": {
+        "id": "FLOOR"
+      }
     },
     "UnitAttributeDefinitionListModel": {
+      "type": "object",
       "required": [
         "count",
         "unitAttributes"
       ],
-      "type": "object",
       "properties": {
         "unitAttributes": {
-          "description": "List of unit attributes",
           "type": "array",
+          "description": "List of unit attributes",
           "items": {
             "$ref": "#/definitions/UnitAttributeDefinitionModel"
           }
         },
         "count": {
-          "format": "int64",
+          "type": "integer",
           "description": "Total count of items",
-          "type": "integer"
+          "format": "int64"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"unitAttributes\": [\n    {\n      \"id\": \"KQOSXHLS\",\n      \"name\": \"Floor 1\",\n      \"description\": \"Floor number\"\n    },\n    {\n      \"id\": \"ADVFSSUL\",\n      \"name\": \"Street view\",\n      \"description\": \"View from the room\"\n    }\n  ],\n  \"count\": 2\n}"
+      "example": {
+        "unitAttributes": [
+          {
+            "id": "KQOSXHLS",
+            "name": "Floor 1",
+            "description": "Floor number"
+          },
+          {
+            "id": "ADVFSSUL",
+            "name": "Street view",
+            "description": "View from the room"
+          }
+        ],
+        "count": 2
+      }
     },
     "UnitAttributeDefinitionModel": {
+      "type": "object",
       "required": [
         "id",
         "name"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The id of the unit attribute",
-          "type": "string"
+          "type": "string",
+          "description": "The id of the unit attribute"
         },
         "name": {
+          "type": "string",
           "description": "The name of the unit attribute",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
+          "type": "string",
           "description": "The description of the unit attribute",
-          "type": "string"
+          "x-nullable": true
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"id\": \"KQOSXHLS\",\n  \"name\": \"Floor 1\",\n  \"description\": \"Floor number\"\n}"
+      "example": {
+        "id": "KQOSXHLS",
+        "name": "Floor 1",
+        "description": "Floor number"
+      }
     },
     "UnitAttributeModel": {
+      "type": "object",
       "required": [
         "id",
         "name"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "Id of unit attribute",
-          "type": "string"
+          "type": "string",
+          "description": "Id of unit attribute"
         },
         "name": {
+          "type": "string",
           "description": "The name of the unit attribute",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
+          "type": "string",
           "description": "Description of unit attribute",
-          "type": "string"
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "UnitCreatedModel": {
+      "type": "object",
       "required": [
         "id"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit id"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"id\": \"MUC-CFP\"\n}"
+      "example": {
+        "id": "MUC-CFP"
+      }
     },
     "UnitGroupCreatedModel": {
+      "type": "object",
       "required": [
         "id"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit group id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit group id"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"id\": \"MUC-DBL\"\n}"
+      "example": {
+        "id": "MUC-DBL"
+      }
     },
     "UnitGroupItemModel": {
+      "type": "object",
       "required": [
         "code",
         "description",
@@ -3793,42 +4254,43 @@
         "property",
         "type"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit group id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit group id"
         },
         "code": {
-          "description": "The code for the unit group that can be shown in reports and table views",
-          "type": "string"
+          "type": "string",
+          "description": "The code for the unit group that can be shown in reports and table views"
         },
         "name": {
+          "type": "string",
           "description": "The name for the unit group",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
+          "type": "string",
           "description": "The description for the unit group",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "memberCount": {
-          "format": "int32",
+          "type": "integer",
           "description": "Number of units in this group",
-          "type": "integer"
+          "format": "int32"
         },
         "maxPersons": {
-          "format": "int32",
+          "type": "integer",
           "description": "Maximum number of persons for the unit group",
-          "type": "integer"
+          "format": "int32"
         },
         "rank": {
-          "format": "int32",
+          "type": "integer",
           "description": "The unit group rank",
-          "type": "integer"
+          "format": "int32",
+          "x-nullable": true
         },
         "type": {
+          "type": "string",
           "description": "The unit group type",
           "enum": [
             "BedRoom",
@@ -3836,46 +4298,99 @@
             "EventSpace",
             "ParkingLot",
             "Other"
-          ],
-          "type": "string"
+          ]
         },
         "property": {
           "$ref": "#/definitions/EmbeddedPropertyModel"
         },
         "connectedUnitGroups": {
-          "description": "The list of connected unit groups this unit group is composed of",
           "type": "array",
+          "description": "The list of connected unit groups this unit group is composed of",
           "items": {
             "$ref": "#/definitions/ConnectedUnitGroupModel"
-          }
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "UnitGroupListModel": {
+      "type": "object",
       "required": [
         "count",
         "unitGroups"
       ],
-      "type": "object",
       "properties": {
         "unitGroups": {
-          "description": "List of unit groups",
           "type": "array",
+          "description": "List of unit groups",
           "items": {
             "$ref": "#/definitions/UnitGroupItemModel"
           }
         },
         "count": {
-          "format": "int64",
+          "type": "integer",
           "description": "Total count of items",
-          "type": "integer"
+          "format": "int64"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"unitGroups\": [\n    {\n      \"id\": \"MUC-DBL\",\n      \"code\": \"DBL\",\n      \"name\": \"Double Room\",\n      \"description\": \"This is a nice room with as kingsize bed and flat screen\",\n      \"memberCount\": 2,\n      \"maxPersons\": 4,\n      \"rank\": 2,\n      \"type\": \"BedRoom\",\n      \"property\": {\n        \"id\": \"MUC\",\n        \"code\": \"MUC\",\n        \"name\": \"Demo Hotel Munich\",\n        \"description\": \"This is the demo hotel Munich\"\n      }\n    },\n    {\n      \"id\": \"BER-SUIT\",\n      \"code\": \"SUIT\",\n      \"name\": \"Suite Room\",\n      \"description\": \"This is a nice suite with two rooms combined\",\n      \"memberCount\": 1,\n      \"maxPersons\": 3,\n      \"rank\": 1,\n      \"type\": \"BedRoom\",\n      \"property\": {\n        \"id\": \"BER\",\n        \"code\": \"BER\",\n        \"name\": \"Demo Hotel Berlin\",\n        \"description\": \"This is the demo hotel Berlin\"\n      },\n      \"connectedUnitGroups\": [\n        {\n          \"id\": \"BER-SGL\",\n          \"name\": \"Single room\",\n          \"description\": \"This is a nice room with a single bed\",\n          \"memberCount\": 2,\n          \"maxPersons\": 1\n        },\n        {\n          \"id\": \"BER-DBL\",\n          \"name\": \"Double room\",\n          \"description\": \"This is a nice room with as kingsize bed and flat screen\",\n          \"memberCount\": 1,\n          \"maxPersons\": 2\n        }\n      ]\n    }\n  ],\n  \"count\": 0\n}"
+      "example": {
+        "unitGroups": [
+          {
+            "id": "MUC-DBL",
+            "code": "DBL",
+            "name": "Double Room",
+            "description": "This is a nice room with as kingsize bed and flat screen",
+            "memberCount": 2,
+            "maxPersons": 4,
+            "rank": 2,
+            "type": "BedRoom",
+            "property": {
+              "id": "MUC",
+              "code": "MUC",
+              "name": "Demo Hotel Munich",
+              "description": "This is the demo hotel Munich"
+            }
+          },
+          {
+            "id": "BER-SUIT",
+            "code": "SUIT",
+            "name": "Suite Room",
+            "description": "This is a nice suite with two rooms combined",
+            "memberCount": 1,
+            "maxPersons": 3,
+            "rank": 1,
+            "type": "BedRoom",
+            "property": {
+              "id": "BER",
+              "code": "BER",
+              "name": "Demo Hotel Berlin",
+              "description": "This is the demo hotel Berlin"
+            },
+            "connectedUnitGroups": [
+              {
+                "id": "BER-SGL",
+                "name": "Single room",
+                "description": "This is a nice room with a single bed",
+                "memberCount": 2,
+                "maxPersons": 1
+              },
+              {
+                "id": "BER-DBL",
+                "name": "Double room",
+                "description": "This is a nice room with as kingsize bed and flat screen",
+                "memberCount": 1,
+                "maxPersons": 2
+              }
+            ]
+          }
+        ],
+        "count": 0
+      }
     },
     "UnitGroupModel": {
+      "type": "object",
       "required": [
         "code",
         "description",
@@ -3886,49 +4401,52 @@
         "property",
         "type"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit group id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit group id"
         },
         "code": {
-          "description": "The code for the unit group that can be shown in reports and table views",
-          "type": "string"
+          "type": "string",
+          "description": "The code for the unit group that can be shown in reports and table views"
         },
         "property": {
           "$ref": "#/definitions/EmbeddedPropertyModel"
         },
         "name": {
-          "description": "The name for the unit group",
           "type": "object",
+          "description": "The name for the unit group",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "memberCount": {
-          "format": "int32",
+          "type": "integer",
           "description": "Number of units in this group",
-          "type": "integer"
+          "format": "int32"
         },
         "description": {
-          "description": "The description for the unit group",
           "type": "object",
+          "description": "The description for the unit group",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "maxPersons": {
-          "format": "int32",
+          "type": "integer",
           "description": "Maximum number of persons for the unit group",
-          "type": "integer"
+          "format": "int32"
         },
         "rank": {
-          "format": "int32",
+          "type": "integer",
           "description": "The unit group rank",
-          "type": "integer"
+          "format": "int32",
+          "x-nullable": true
         },
         "type": {
+          "type": "string",
           "description": "The unit group type",
           "enum": [
             "BedRoom",
@@ -3936,44 +4454,66 @@
             "EventSpace",
             "ParkingLot",
             "Other"
-          ],
-          "type": "string"
+          ]
         },
         "connectedUnitGroups": {
-          "description": "The list of connected unit groups this unit group is composed of",
           "type": "array",
+          "description": "The list of connected unit groups this unit group is composed of",
           "items": {
             "$ref": "#/definitions/ConnectedUnitGroupModel"
-          }
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"id\": \"MUC-DBL\",\n  \"code\": \"DBL\",\n  \"property\": {\n    \"id\": \"MUC\",\n    \"code\": \"MUC\",\n    \"name\": \"Demo Hotel Munich\",\n    \"description\": \"This is the demo hotel Munich\"\n  },\n  \"name\": {\n    \"en\": \"Double Room\",\n    \"de\": \"Doppelzimmer\"\n  },\n  \"memberCount\": 0,\n  \"description\": {\n    \"en\": \"This is a nice room with as kingsize bed and flat screen\",\n    \"de\": \"Dies ist ein schönes Zimmer mit Kingsize-Bett und Flachbildschirm\"\n  },\n  \"maxPersons\": 4,\n  \"rank\": 2,\n  \"type\": \"BedRoom\"\n}"
+      "example": {
+        "id": "MUC-DBL",
+        "code": "DBL",
+        "property": {
+          "id": "MUC",
+          "code": "MUC",
+          "name": "Demo Hotel Munich",
+          "description": "This is the demo hotel Munich"
+        },
+        "name": {
+          "en": "Double Room",
+          "de": "Doppelzimmer"
+        },
+        "memberCount": 0,
+        "description": {
+          "en": "This is a nice room with as kingsize bed and flat screen",
+          "de": "Dies ist ein sch\u00F6nes Zimmer mit Kingsize-Bett und Flachbildschirm"
+        },
+        "maxPersons": 4,
+        "rank": 2,
+        "type": "BedRoom"
+      }
     },
     "UnitItemMaintenanceModel": {
+      "type": "object",
       "required": [
         "id",
         "type"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The id for the scheduled maintenance",
-          "type": "string"
+          "type": "string",
+          "description": "The id for the scheduled maintenance"
         },
         "type": {
-          "description": "The type of maintenance that is planned for the unit. A small repair (OutOfService),\r\na bigger disfunction that does not allow to sell the unit (OutOfOrder) or is it\r\neven under construction and should reduce the house count (OutOfInventory)",
+          "type": "string",
+          "description": "The type of maintenance that is planned for the unit. A small repair (OutOfService),\na bigger disfunction that does not allow to sell the unit (OutOfOrder) or is it\neven under construction and should reduce the house count (OutOfInventory)",
           "enum": [
             "OutOfService",
             "OutOfOrder",
             "OutOfInventory"
-          ],
-          "type": "string"
+          ]
         }
       },
       "additionalProperties": false
     },
     "UnitItemModel": {
+      "type": "object",
       "required": [
         "created",
         "description",
@@ -3983,21 +4523,20 @@
         "property",
         "status"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit id"
         },
         "name": {
+          "type": "string",
           "description": "The name for the unit",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
+          "type": "string",
           "description": "The description for the unit",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "property": {
           "$ref": "#/definitions/EmbeddedPropertyModel"
@@ -4012,49 +4551,70 @@
           "$ref": "#/definitions/UnitItemStatusModel"
         },
         "maxPersons": {
-          "format": "int32",
+          "type": "integer",
           "description": "Maximum number of persons for the unit",
-          "type": "integer"
+          "format": "int32"
         },
         "created": {
+          "type": "string",
+          "description": "Date of creation\u003Cbr /\u003EA date and time (without fractional second part) in UTC or with UTC offset as defined in \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E",
+          "format": "date-time"
+        },
+        "archived": {
+          "type": "string",
+          "description": "Date when the unit was archived\u003Cbr /\u003EA date and time (without fractional second part) in UTC or with UTC offset as defined in \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E",
           "format": "date-time",
-          "description": "Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
-          "type": "string"
+          "x-nullable": true
+        },
+        "isArchived": {
+          "type": "boolean",
+          "description": "Whether the unit is archived or not. A unit is archived if the Archived property has a value.",
+          "readOnly": true
         },
         "attributes": {
-          "description": "Collection of user defined attributes of unit",
           "type": "array",
+          "description": "Collection of user defined attributes of unit",
           "items": {
             "$ref": "#/definitions/UnitAttributeModel"
-          }
+          },
+          "x-nullable": true
         },
         "connectedUnits": {
-          "description": "Collection of connected units",
           "type": "array",
+          "description": "Collection of connected units",
           "items": {
             "$ref": "#/definitions/ConnectedUnitModel"
-          }
+          },
+          "x-nullable": true
+        },
+        "actions": {
+          "type": "array",
+          "description": "The list of actions for this unit",
+          "items": {
+            "$ref": "#/definitions/ActionModel[UnitAction,NotAllowedUnitActionReason]"
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "UnitItemStatusModel": {
+      "type": "object",
       "required": [
         "condition",
         "isOccupied"
       ],
-      "type": "object",
       "properties": {
         "isOccupied": {
           "type": "boolean"
         },
         "condition": {
+          "type": "string",
           "enum": [
             "Clean",
             "CleanToBeInspected",
             "Dirty"
-          ],
-          "type": "string"
+          ]
         },
         "maintenance": {
           "$ref": "#/definitions/UnitItemMaintenanceModel"
@@ -4063,68 +4623,219 @@
       "additionalProperties": false
     },
     "UnitListModel": {
+      "type": "object",
       "required": [
         "count",
         "units"
       ],
-      "type": "object",
       "properties": {
         "units": {
-          "description": "List of units",
           "type": "array",
+          "description": "List of units",
           "items": {
             "$ref": "#/definitions/UnitItemModel"
           }
         },
         "count": {
-          "format": "int64",
+          "type": "integer",
           "description": "Total count of items",
-          "type": "integer"
+          "format": "int64"
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"units\": [\n    {\n      \"id\": \"MUC-MTA\",\n      \"name\": \"A.101\",\n      \"description\": \"Single room\",\n      \"property\": {\n        \"id\": \"MUC\",\n        \"code\": \"MUC\",\n        \"name\": \"Demo Hotel Munich\",\n        \"description\": \"This is the demo hotel Munich\"\n      },\n      \"unitGroup\": {\n        \"id\": \"MUC-SGL\",\n        \"code\": \"SGL\",\n        \"name\": \"Single\",\n        \"description\": \"Single\",\n        \"type\": \"BedRoom\"\n      },\n      \"connectingUnit\": {\n        \"id\": \"MUC-QKY\",\n        \"name\": \"S.101\",\n        \"description\": \"Suite room\",\n        \"unitGroupId\": \"MUC-SUI\"\n      },\n      \"status\": {\n        \"isOccupied\": true,\n        \"condition\": \"Dirty\",\n        \"maintenance\": {\n          \"id\": \"MUC-MTA-SGHZD\",\n          \"type\": \"OutOfService\"\n        }\n      },\n      \"maxPersons\": 1,\n      \"created\": \"0001-01-01T00:00:00Z\",\n      \"attributes\": [\n        {\n          \"id\": \"GRTDTLDD\",\n          \"name\": \"Floor 2\",\n          \"description\": \"Floor number\"\n        },\n        {\n          \"id\": \"KQOSXHLS\",\n          \"name\": \"Street view\",\n          \"description\": \"View from the room\"\n        }\n      ],\n      \"connectedUnits\": []\n    },\n    {\n      \"id\": \"MUC-JQI\",\n      \"name\": \"A.102\",\n      \"description\": \"Double room\",\n      \"property\": {\n        \"id\": \"MUC\",\n        \"code\": \"MUC\",\n        \"name\": \"Demo Hotel Munich\",\n        \"description\": \"This is the demo hotel Munich\"\n      },\n      \"unitGroup\": {\n        \"id\": \"MUC-DBL\",\n        \"code\": \"DBL\",\n        \"name\": \"Double\",\n        \"description\": \"Double\",\n        \"type\": \"BedRoom\"\n      },\n      \"connectingUnit\": {\n        \"id\": \"MUC-QKY\",\n        \"name\": \"S.101\",\n        \"description\": \"Suite room\",\n        \"unitGroupId\": \"MUC-SUI\"\n      },\n      \"status\": {\n        \"isOccupied\": false,\n        \"condition\": \"Clean\",\n        \"maintenance\": {\n          \"id\": \"MUC-JQI-GSZGK\",\n          \"type\": \"OutOfOrder\"\n        }\n      },\n      \"maxPersons\": 2,\n      \"created\": \"0001-01-01T00:00:00Z\",\n      \"attributes\": [\n        {\n          \"id\": \"GRTDTLDD\",\n          \"name\": \"Floor 2\",\n          \"description\": \"Floor number\"\n        }\n      ],\n      \"connectedUnits\": []\n    },\n    {\n      \"id\": \"MUC-QKY\",\n      \"name\": \"S.101\",\n      \"description\": \"Suite room\",\n      \"property\": {\n        \"id\": \"MUC\",\n        \"code\": \"MUC\",\n        \"name\": \"Demo Hotel Munich\",\n        \"description\": \"This is the demo hotel Munich\"\n      },\n      \"unitGroup\": {\n        \"id\": \"MUC-SUI\",\n        \"code\": \"SUI\",\n        \"name\": \"Suite\",\n        \"description\": \"Suite\",\n        \"type\": \"BedRoom\"\n      },\n      \"status\": {\n        \"isOccupied\": false,\n        \"condition\": \"Clean\",\n        \"maintenance\": {\n          \"id\": \"MUC-JQI-GSZGK\",\n          \"type\": \"OutOfOrder\"\n        }\n      },\n      \"maxPersons\": 3,\n      \"created\": \"0001-01-01T00:00:00Z\",\n      \"attributes\": [\n        {\n          \"id\": \"GRTDTLDD\",\n          \"name\": \"Floor 2\",\n          \"description\": \"Floor number\"\n        }\n      ],\n      \"connectedUnits\": [\n        {\n          \"id\": \"MUC-MTA\",\n          \"name\": \"A.101\",\n          \"description\": \"Single room\",\n          \"unitGroupId\": \"MUC-SGL\",\n          \"condition\": \"Clean\",\n          \"maxPersons\": 1\n        },\n        {\n          \"id\": \"MUC-JQI\",\n          \"name\": \"A.102\",\n          \"description\": \"Double room\",\n          \"unitGroupId\": \"MUC-DBL\",\n          \"condition\": \"Clean\",\n          \"maxPersons\": 2\n        }\n      ]\n    }\n  ],\n  \"count\": 3\n}"
+      "example": {
+        "units": [
+          {
+            "id": "MUC-MTA",
+            "name": "A.101",
+            "description": "Single room",
+            "property": {
+              "id": "MUC",
+              "code": "MUC",
+              "name": "Demo Hotel Munich",
+              "description": "This is the demo hotel Munich"
+            },
+            "unitGroup": {
+              "id": "MUC-SGL",
+              "code": "SGL",
+              "name": "Single",
+              "description": "Single",
+              "type": "BedRoom"
+            },
+            "connectingUnit": {
+              "id": "MUC-QKY",
+              "name": "S.101",
+              "description": "Suite room",
+              "unitGroupId": "MUC-SUI"
+            },
+            "status": {
+              "isOccupied": true,
+              "condition": "Dirty",
+              "maintenance": {
+                "id": "MUC-MTA-SGHZD",
+                "type": "OutOfService"
+              }
+            },
+            "maxPersons": 1,
+            "created": "0001-01-01T00:00:00Z",
+            "isArchived": false,
+            "attributes": [
+              {
+                "id": "GRTDTLDD",
+                "name": "Floor 2",
+                "description": "Floor number"
+              },
+              {
+                "id": "KQOSXHLS",
+                "name": "Street view",
+                "description": "View from the room"
+              }
+            ],
+            "connectedUnits": []
+          },
+          {
+            "id": "MUC-JQI",
+            "name": "A.102",
+            "description": "Double room",
+            "property": {
+              "id": "MUC",
+              "code": "MUC",
+              "name": "Demo Hotel Munich",
+              "description": "This is the demo hotel Munich"
+            },
+            "unitGroup": {
+              "id": "MUC-DBL",
+              "code": "DBL",
+              "name": "Double",
+              "description": "Double",
+              "type": "BedRoom"
+            },
+            "connectingUnit": {
+              "id": "MUC-QKY",
+              "name": "S.101",
+              "description": "Suite room",
+              "unitGroupId": "MUC-SUI"
+            },
+            "status": {
+              "isOccupied": false,
+              "condition": "Clean",
+              "maintenance": {
+                "id": "MUC-JQI-GSZGK",
+                "type": "OutOfOrder"
+              }
+            },
+            "maxPersons": 2,
+            "created": "0001-01-01T00:00:00Z",
+            "isArchived": false,
+            "attributes": [
+              {
+                "id": "GRTDTLDD",
+                "name": "Floor 2",
+                "description": "Floor number"
+              }
+            ],
+            "connectedUnits": []
+          },
+          {
+            "id": "MUC-QKY",
+            "name": "S.101",
+            "description": "Suite room",
+            "property": {
+              "id": "MUC",
+              "code": "MUC",
+              "name": "Demo Hotel Munich",
+              "description": "This is the demo hotel Munich"
+            },
+            "unitGroup": {
+              "id": "MUC-SUI",
+              "code": "SUI",
+              "name": "Suite",
+              "description": "Suite",
+              "type": "BedRoom"
+            },
+            "status": {
+              "isOccupied": false,
+              "condition": "Clean",
+              "maintenance": {
+                "id": "MUC-JQI-GSZGK",
+                "type": "OutOfOrder"
+              }
+            },
+            "maxPersons": 3,
+            "created": "0001-01-01T00:00:00Z",
+            "isArchived": false,
+            "attributes": [
+              {
+                "id": "GRTDTLDD",
+                "name": "Floor 2",
+                "description": "Floor number"
+              }
+            ],
+            "connectedUnits": [
+              {
+                "id": "MUC-MTA",
+                "name": "A.101",
+                "description": "Single room",
+                "unitGroupId": "MUC-SGL",
+                "condition": "Clean",
+                "maxPersons": 1
+              },
+              {
+                "id": "MUC-JQI",
+                "name": "A.102",
+                "description": "Double room",
+                "unitGroupId": "MUC-DBL",
+                "condition": "Clean",
+                "maxPersons": 2
+              }
+            ]
+          }
+        ],
+        "count": 3
+      }
     },
     "UnitMaintenanceModel": {
+      "type": "object",
       "required": [
         "from",
         "id",
         "to",
         "type"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The id for the scheduled maintenance",
-          "type": "string"
+          "type": "string",
+          "description": "The id for the scheduled maintenance"
         },
         "from": {
-          "format": "date-time",
-          "description": "Date and time the scheduled maintenance window starts<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
-          "type": "string"
+          "type": "string",
+          "description": "Date and time the scheduled maintenance window starts\u003Cbr /\u003EA date and time (without fractional second part) in UTC or with UTC offset as defined in \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E",
+          "format": "date-time"
         },
         "to": {
-          "format": "date-time",
-          "description": "Date and time the scheduled maintenance window ends<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
-          "type": "string"
+          "type": "string",
+          "description": "Date and time the scheduled maintenance window ends\u003Cbr /\u003EA date and time (without fractional second part) in UTC or with UTC offset as defined in \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E",
+          "format": "date-time"
         },
         "type": {
-          "description": "The type of maintenance that is planned for the unit. A small repair (OutOfService),\r\na bigger disfunction that does not allow to sell the unit (OutOfOrder) or is it\r\neven under construction and should reduce the house count (OutOfInventory)",
+          "type": "string",
+          "description": "The type of maintenance that is planned for the unit. A small repair (OutOfService),\na bigger disfunction that does not allow to sell the unit (OutOfOrder) or is it\neven under construction and should reduce the house count (OutOfInventory)",
           "enum": [
             "OutOfService",
             "OutOfOrder",
             "OutOfInventory"
-          ],
-          "type": "string"
+          ]
         },
         "description": {
+          "type": "string",
           "description": "The description text for the maintenance",
-          "type": "string"
+          "x-nullable": true
         }
       },
       "additionalProperties": false
     },
     "UnitModel": {
+      "type": "object",
       "required": [
         "created",
         "description",
@@ -4134,22 +4845,22 @@
         "property",
         "status"
       ],
-      "type": "object",
       "properties": {
         "id": {
-          "description": "The unit id",
-          "type": "string"
+          "type": "string",
+          "description": "The unit id"
         },
         "name": {
+          "type": "string",
           "description": "The name for the unit",
-          "minLength": 1,
-          "type": "string"
+          "minLength": 1
         },
         "description": {
-          "description": "The description for the unit",
           "type": "object",
+          "description": "The description for the unit",
           "additionalProperties": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         },
         "property": {
@@ -4165,50 +4876,124 @@
           "$ref": "#/definitions/UnitStatusModel"
         },
         "maxPersons": {
-          "format": "int32",
+          "type": "integer",
           "description": "Maximum number of persons for the unit",
-          "type": "integer"
+          "format": "int32"
         },
         "created": {
+          "type": "string",
+          "description": "Date of creation\u003Cbr /\u003EA date and time (without fractional second part) in UTC or with UTC offset as defined in \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E",
+          "format": "date-time"
+        },
+        "archived": {
+          "type": "string",
+          "description": "Date when the unit was archived\u003Cbr /\u003EA date and time (without fractional second part) in UTC or with UTC offset as defined in \u003Ca href=\u0022https://en.wikipedia.org/wiki/ISO_8601\u0022\u003EISO8601:2004\u003C/a\u003E",
           "format": "date-time",
-          "description": "Date of creation<br />A date and time (without fractional second part) in UTC or with UTC offset as defined in <a href=\"https://en.wikipedia.org/wiki/ISO_8601\">ISO8601:2004</a>",
-          "type": "string"
+          "x-nullable": true
+        },
+        "isArchived": {
+          "type": "boolean",
+          "description": "Indicates whether the unit is archived. A unit is archived if the Archived property has a value.",
+          "readOnly": true
         },
         "attributes": {
-          "description": "Collection of user defined attributes of unit",
           "type": "array",
+          "description": "Collection of user defined attributes of unit",
           "items": {
             "$ref": "#/definitions/UnitAttributeModel"
-          }
+          },
+          "x-nullable": true
         },
         "connectedUnits": {
-          "description": "Collection of connected units",
           "type": "array",
+          "description": "Collection of connected units",
           "items": {
             "$ref": "#/definitions/ConnectedUnitModel"
-          }
+          },
+          "x-nullable": true
+        },
+        "actions": {
+          "type": "array",
+          "description": "The list of actions for this unit",
+          "items": {
+            "$ref": "#/definitions/ActionModel[UnitAction,NotAllowedUnitActionReason]"
+          },
+          "x-nullable": true
         }
       },
       "additionalProperties": false,
-      "example": "{\n  \"id\": \"MUC-MTA\",\n  \"name\": \"A.101\",\n  \"description\": {\n    \"en\": \"First Floor Room 1\",\n    \"de\": \"1.OG Zimmer 1\"\n  },\n  \"property\": {\n    \"id\": \"MUC\",\n    \"code\": \"MUC\",\n    \"name\": \"Demo Hotel Munich\",\n    \"description\": \"This is the demo hotel Munich\"\n  },\n  \"unitGroup\": {\n    \"id\": \"MUC-DBL\",\n    \"code\": \"DBL\",\n    \"name\": \"Double\",\n    \"description\": \"Double\",\n    \"type\": \"BedRoom\"\n  },\n  \"connectingUnit\": {\n    \"id\": \"MUC-QKY\",\n    \"name\": \"S.101\",\n    \"description\": \"Suite room\",\n    \"unitGroupId\": \"MUC-SUI\"\n  },\n  \"status\": {\n    \"isOccupied\": false,\n    \"condition\": \"Clean\",\n    \"maintenance\": {\n      \"id\": \"MUC-MTA-SGHZD\",\n      \"from\": \"2026-02-27T16:47:27.5988347+01:00\",\n      \"to\": \"2026-03-01T16:47:27.5988347+01:00\",\n      \"type\": \"OutOfService\",\n      \"description\": \"The remote control for the TV needs to be replaced.\"\n    }\n  },\n  \"maxPersons\": 2,\n  \"created\": \"0001-01-01T00:00:00Z\",\n  \"attributes\": [\n    {\n      \"id\": \"KQOSXHLS\",\n      \"name\": \"Floor 3\",\n      \"description\": \"Floor number\"\n    },\n    {\n      \"id\": \"ADVFSSUL\",\n      \"name\": \"Street view\",\n      \"description\": \"View from the room\"\n    }\n  ],\n  \"connectedUnits\": []\n}"
+      "example": {
+        "id": "MUC-MTA",
+        "name": "A.101",
+        "description": {
+          "en": "First Floor Room 1",
+          "de": "1.OG Zimmer 1"
+        },
+        "property": {
+          "id": "MUC",
+          "code": "MUC",
+          "name": "Demo Hotel Munich",
+          "description": "This is the demo hotel Munich"
+        },
+        "unitGroup": {
+          "id": "MUC-DBL",
+          "code": "DBL",
+          "name": "Double",
+          "description": "Double",
+          "type": "BedRoom"
+        },
+        "connectingUnit": {
+          "id": "MUC-QKY",
+          "name": "S.101",
+          "description": "Suite room",
+          "unitGroupId": "MUC-SUI"
+        },
+        "status": {
+          "isOccupied": false,
+          "condition": "Clean",
+          "maintenance": {
+            "id": "MUC-MTA-SGHZD",
+            "from": "2026-05-12T11:26:36.1247097\u002B02:00",
+            "to": "2026-05-14T11:26:36.1247097\u002B02:00",
+            "type": "OutOfService",
+            "description": "The remote control for the TV needs to be replaced."
+          }
+        },
+        "maxPersons": 2,
+        "created": "0001-01-01T00:00:00Z",
+        "isArchived": false,
+        "attributes": [
+          {
+            "id": "KQOSXHLS",
+            "name": "Floor 3",
+            "description": "Floor number"
+          },
+          {
+            "id": "ADVFSSUL",
+            "name": "Street view",
+            "description": "View from the room"
+          }
+        ],
+        "connectedUnits": []
+      }
     },
     "UnitStatusModel": {
+      "type": "object",
       "required": [
         "condition",
         "isOccupied"
       ],
-      "type": "object",
       "properties": {
         "isOccupied": {
           "type": "boolean"
         },
         "condition": {
+          "type": "string",
           "enum": [
             "Clean",
             "CleanToBeInspected",
             "Dirty"
-          ],
-          "type": "string"
+          ]
         },
         "maintenance": {
           "$ref": "#/definitions/UnitMaintenanceModel"
@@ -4227,5 +5012,28 @@
         "reservations.import": "Import reservations"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Property"
+    },
+    {
+      "name": "PropertyActions"
+    },
+    {
+      "name": "Types"
+    },
+    {
+      "name": "Unit"
+    },
+    {
+      "name": "UnitActions"
+    },
+    {
+      "name": "UnitAttribute"
+    },
+    {
+      "name": "UnitGroup"
+    }
+  ]
 }
